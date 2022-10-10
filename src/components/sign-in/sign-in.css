@@ -1,0 +1,58 @@
+.sign-in {
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    border-radius: 10px;
+    margin: 0 auto;
+    align-items: center;
+    padding: 10px 0;
+    box-shadow: 1px 2px 3px 4px rgba(20,20,20,0.4);
+    transform: scale(0.85);
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sign-in h2 {
+    margin-bottom: 3rem;
+}
+
+label {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.sign-in input[type=text],
+.sign-in input[type=password],
+.sign-in input[type=email]
+ {
+    width: 300px;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 6px;
+    outline: none; 
+}
+
+.sign-in button {
+    width: 280px;
+    /* width: fit-content; */
+    padding: 12px;
+    cursor: pointer;
+    border: none;
+    border-radius: 6px;
+    background:  #25af51;
+    color: white;
+    font-weight: 600;
+}
+
+.sign-in button:hover {
+    background: white;
+    color: #25af51;
+    border: 1px solid #25af51;
+}
+

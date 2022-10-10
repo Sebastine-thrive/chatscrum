@@ -1,0 +1,73 @@
+.home {
+    width: 100vw;
+    height: 100vh;
+    background-color: #ff5733;
+    overflow: hidden;
+}
+
+.home h1{
+    font-family: 'Nova Flat';
+}
+.home span{
+    font-size: 50px;
+}
+
+.image {
+    width: 100%;
+    height: 60%;
+    background-image: url("/src/components/images/Scrumboard\ image.jpg");
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    margin-top:-3.5rem;
+}
+
+.home h1 {
+    color: white;
+    background-color: #ff5733;
+    margin-top: 0;
+    padding: 3rem 0;
+}
+
+.home .links {
+    width: 15rem;
+    height: 5rem;
+    display: inline-flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    background: white;
+    /* margi */
+    /* background-color: #ff5733; */
+    /* padding: 5rem 0; */
+    margin-top: -2rem;
+    margin-bottom: 5rem ;
+} 
+
+.home .links  button {
+    width: 5rem;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 0 10px;
+    padding:10px 5px;
+}
+
+.home .links a .sign_up{
+    color: white;
+}
+
+.home .links a .sign_up:hover{
+    background: white;
+    color: #226AB4 ;;
+}
+
+.home .links a .sign_in{
+    background: white;
+    color: #ff5733;
+    border: 2px solid #ff5733;
+}
+
+.home .links a .sign_in:hover{
+    background: #ff5733;
+    color: white;
+}

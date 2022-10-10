@@ -1,0 +1,50 @@
+ 
+ .weekly, .daily {
+    display: flex;
+    flex-direction: column;
+    overflow-y:auto ;
+    top: 0;
+    z-index: 1;
+ }
+
+ .weekly h3{
+     position: -webkit-sticky;
+     position: sticky;
+     /* background-color: #87b3df; */
+ }
+
+  .daily h3{
+     background-color: #226AB4;
+  }
+
+
+.task {
+    width: 24rem;
+    box-shadow: 2px 4px 6px gray; 
+    background-color: white;
+    margin: 1rem 2rem;
+    border-radius: 4px;
+    padding: 6px 5px;
+    text-transform: capitalize;
+    font-weight: 600;
+}    
+
+.red {
+    color: red;
+}
+
+.blue {
+    color: aqua;
+}
+
+/* .daily .task {
+    width: 350px;
+    box-shadow: 2px 4px 6px gray; 
+    margin-left: 35px;
+    border-radius: 4px;
+    padding: 6px 0;
+    text-transform: capitalize;
+    font-weight: 600;
+ */
+
+

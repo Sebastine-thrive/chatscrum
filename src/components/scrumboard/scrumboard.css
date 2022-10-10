@@ -1,0 +1,138 @@
+.scrumboard {
+    position: relative;
+    scroll-behavior: smooth;
+    margin-bottom: 70px;
+}
+
+.boxes {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 0;
+}
+
+.box {
+    width: 450px;
+    height: 400px;
+    box-shadow: 2px 4px 6px gray;
+    margin: 0 30px;
+    border-radius: 5px;
+}
+
+.box h3 {
+    /* background-color: gray; */
+    background-color: #ff5733;
+    margin-top: 0;
+    padding: 7px 0;
+    color: white;
+
+    
+}
+
+#small-box {
+    width: 350px;
+    height: 40px;
+    box-shadow: 2px 4px 6px gray; 
+    margin-left: 35px;
+    border-radius: 4px;
+    padding-top: 10px;
+    font-weight: 600;
+}  
+
+.add {
+    background-color: #226AB4 ;
+    margin-top: 5rem ;
+    width: 13rem;
+    padding: 15px 10px;
+    z-index: 999;
+    font-size: 15px;
+}
+
+#info {
+    padding: 20px;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+nav {
+    background-color:#0074EB ;
+    color: white;
+    display: flex;
+    padding: 20px 10px;
+    justify-content: space-between;
+}
+
+
+#modal {
+    width: 500px;
+    height: 300px;
+    background-color: white;
+    box-shadow: 2px 4px 6px gray;
+    z-index: 9999;
+    position: absolute;
+    margin-top: -100px;
+    margin-left: 35rem;
+    /* margin-bottom: 50px; */
+}
+
+#modal h3 {
+    border-top-left-radius: 4px;
+}
+
+.show {
+    display: block;
+}
+
+.hidden {
+    display: none;
+}
+
+#close {
+    border: 2px solid white;
+    padding: 0.5rem;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color:#226AB4;
+    color: white;
+}
+
+.header h2{
+    width: 10%;
+    border-left: 2px solid white;
+    cursor: pointer;
+    margin-left: 50px;
+    padding-left: 30px;
+}
+
+.confirm {
+    margin-top: 70px;
+}
+
+#task {
+    padding: 5px;
+    font-weight: 500;
+    box-shadow: 1px 2px 2px gray;
+    color: rgb(16, 16, 90)
+}
+
+
+
+@media(max-width: 767px) {
+    .boxes {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .box {
+        margin-bottom: 30px;
+    }
+
+    #modal {
+        margin-top: -430px;
+        margin-left: 83px;
+    }
+}

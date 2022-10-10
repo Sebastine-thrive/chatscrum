@@ -1,0 +1,76 @@
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px 0;
+}
+
+.sign-up{
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    border-radius: 10px;
+    margin: 0 auto;
+    align-items: center;
+    padding: 10px 0;
+    box-shadow: 1px 2px 3px 3px rgba(20,20,20,0.4);
+    transform: scale(0.85);
+}
+
+.sign-up h2 {
+    margin-bottom: 3rem;
+}
+
+.sign-up label {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 18px;
+    font-weight: 600;
+    /* margin: 2rem 0; */
+}
+
+input[type=text],
+input[type=password],
+input[type=email]
+ {
+    width: 300px;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 6px;
+    outline: none;
+}
+
+select {
+    width: 280px;
+    padding: 10px;
+    margin: 10px 0;
+    border:3px solid #226AB4 ;
+    border-radius: 5px;
+    outline: none;
+}
+
+
+button {
+    margin-top: 25px;
+    width: 280px;
+    padding: 12px;
+    cursor: pointer;
+    border: none;
+    border-radius: 6px;
+    background:  linear-gradient(88.91deg, #0074EB -8.33%, rgba(0, 89, 181, 0) 84.78%), #226AB4;
+    color: white;
+    font-weight: 600;
+}
+
+button:hover {
+    background: white;
+    color: #226AB4;
+    border: 1px solid #226AB4;
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 3px;
+    /* margin-bottom: 3rem; */
+}
