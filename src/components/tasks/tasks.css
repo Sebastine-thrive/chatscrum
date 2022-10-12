@@ -20,6 +20,7 @@
 
 .task {
     width: 24rem;
+    height: 2rem;
     box-shadow: 2px 4px 6px gray; 
     background-color: white;
     margin: 1rem 2rem;

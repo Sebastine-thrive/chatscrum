@@ -1,3 +1,5 @@
+import React, { useRef, useEffect } from "react";
+
 import "./sign-up.css";
 import formContent from "../static/index";
 import { useForm } from "react-hook-form";
@@ -16,7 +18,8 @@ const schema = yup.object().shape(
   }
 )
 
-const SignUp = () => {
+export default function SignUp({ email, password, setEmail, setPassword }) {
+
 
   const {
     register,
@@ -28,9 +31,16 @@ const SignUp = () => {
     }
   );
 
-  const onSubmit = (data) =>
-    console.log(data, "sign up successful");
-  // console.log("Sign up successful")
+  // const refpassword = useRef(null);
+
+
+  const onSubmit = (data) => {
+    setPassword(data.password)
+    setEmail(data.email)
+  }
+  // console.log(password)
+  // console.log(email)
+
 
 
 
@@ -40,16 +50,22 @@ const SignUp = () => {
       <h2>Sign up here!</h2>
 
       <form onSubmit={handleSubmit(onSubmit)}>
-        {formContent.input.map((input, key) => {
-          return (
-            <div key={key}>
-              <label htmlFor={input.type}>{input.label}</label> <br />
-              <input type={input.type} name={input.name} {...register(input.name)} />
+        <label htmlFor="full name"> Full Name</label>
+        <input type="text" name="fullname" {...register('fullname')} />
+        <p className="error-message">{errors['fullname']?.message}</p>
 
-              <p className="error-message">{errors[input.name]?.message}</p>
-            </div>
-          )
-        })}
+        <label htmlFor="full name"> Email</label>
+        <input type="email" name="email"  {...register('email')} />
+        <p className="error-message">{errors['email']?.message}</p>
+
+        <label htmlFor="full name"> Password</label>
+        <input type="password" name="password" {...register('password')} />
+        <p className="error-message">{errors['password']?.message}</p>
+
+        <label htmlFor="full name"> Project Name</label>
+        <input type="text" name="projectname" {...register('projectname')} />
+        <p className="error-message">{errors['projectname']?.message}</p>
+
 
         <label htmlFor="options">User Type</label>
         <select id="options">
@@ -57,7 +73,9 @@ const SignUp = () => {
           <option value="Owner"  {...register('usertype')}>Owner</option>
         </select>
 
-        <Link to="/signin"> <button onClick={onSubmit}> SIGN UP</button> </Link>
+        {/* <Link to="/signin">  */}
+        <button className="signup_button" type='submit' > SIGN UP</button>
+        {/* </Link> */}
       </form>
 
       <p>Have an Account? <Link to="/signin">Sign In</Link> </p>
@@ -66,4 +84,4 @@ const SignUp = () => {
   )
 }
 
-export default SignUp;
+// export default SignUp;  

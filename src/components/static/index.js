@@ -10,6 +10,7 @@ const formContent = {
             label: "Email",
             name: "email",
             type: "email"
+            
         },
 
         {

@@ -54,11 +54,15 @@
 
 .home .links a .sign_up{
     color: white;
+    background:  linear-gradient(88.91deg, #0074EB -8.33%, rgba(0, 89, 181, 0) 84.78%), #226AB4;
+    /* background-color: #226AB4; */
+    border: none;
 }
 
 .home .links a .sign_up:hover{
     background: white;
-    color: #226AB4 ;;
+    color: #226AB4;
+    border: 2px solid #226AB4;
 }
 
 .home .links a .sign_in{

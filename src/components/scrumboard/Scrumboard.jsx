@@ -17,12 +17,12 @@ export class Scrumboard extends Component {
         }
     }
 
-    componentDidMount() {
-        axios.get("http://liveapi.chatscrum.com/scrum/api/scrumgoals/")
-            .then(res => this.setState({
-                tasks: res?.data
-            }))
-    }
+    // componentDidMount() {
+    //     axios.get("http://liveapi.chatscrum.com/scrum/api/scrumgoals/")
+    //         .then(res => this.setState({
+    //             tasks: res?.data
+    //         }))
+    // }
 
     addTask = (task) => {
         task.id = Math.random().toString(36).slice(2, 9)

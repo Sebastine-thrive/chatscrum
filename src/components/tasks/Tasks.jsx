@@ -58,7 +58,7 @@ export default function Tasks({ data, deleteTask }) {
     }
 
     console.log(weeklyTask)
-    console.log(weeklyTask)
+    console.log(dailyTask)
 
 
     return (
@@ -76,25 +76,14 @@ export default function Tasks({ data, deleteTask }) {
                                 }}
                             >
                                 <h3> Weekly Tasks</h3>
-                                {weeklyTask?.map(({ id, name, time_created, scrumgoalhistory_set }, index) => {
+                                {weeklyTask?.map(({ id, name }, index) => {
                                     return (
                                         <Draggable key={`${id}`} draggableId={`${id}`} index={index}>
                                             {(provided) => (
                                                 <div key={`${id}`} ref={provided.innerRef} {...provided.dragHandleProps} {...provided.draggableProps}
                                                 >
                                                     <p className='task'> {name} </p>
-                                                    <div className='red'>
-                                                        {time_created.slice(0, 10)} at {time_created.slice(12, 16)}
-                                                    </div>
 
-                                                    <div className='blue'>
-                                                        {scrumgoalhistory_set.map(({ id, done_by }) => {
-                                                            return (
-                                                                <p key={`${id}`}> {done_by} </p>
-                                                            )
-                                                        })}
-
-                                                    </div>
                                                 </div>
                                             )}
                                         </Draggable>

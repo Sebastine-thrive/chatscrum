@@ -9,7 +9,7 @@ export default function Home() {
             <h1>WELCOME TO <br /><span className='title'> CHATSCRUM  </span> </h1>
             <div className='links'>
                 <Link to='/signup'>  <button className='sign_up'> SIGN UP   </button> </Link>
-                <Link to='/signup'>  <button className='sign_in'> SIGN IN   </button> </Link>
+                <Link to='/signin'>  <button className='sign_in'> SIGN IN   </button> </Link>
 
             </div>
             <div className='image'></div>
