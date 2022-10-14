@@ -20,13 +20,14 @@
 }
 
 .box h3 {
-    /* background-color: gray; */
     background-color: #ff5733;
     margin-top: 0;
     padding: 7px 0;
     color: white;
+}
 
-    
+.var p span {
+    text-transform: capitalize;
 }
 
 #small-box {
@@ -39,13 +40,28 @@
     font-weight: 600;
 }  
 
+.add-task {
+    margin-top: 1rem;
+    margin-bottom: 7rem;
+}
+
 .add {
     background-color: #226AB4 ;
-    margin-top: 5rem ;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: 500;
+    margin-top: 4rem ;
     width: 13rem;
     padding: 15px 10px;
     z-index: 999;
     font-size: 15px;
+}
+
+.add:hover {
+    background-color: white;
+    border: 2px solid #226ABA;
+    color: #226AB4;
 }
 
 #info {
@@ -54,7 +70,11 @@
     font-size: 20px;
 }
 
-nav {
+#info span{
+    text-transform:capitalize ;
+}
+
+.scrumboard nav {
     background-color:#0074EB ;
     color: white;
     display: flex;
@@ -64,15 +84,13 @@ nav {
 
 
 #modal {
-    width: 500px;
-    height: 300px;
+    width: 450px;
+    height: 200px;
     background-color: white;
     box-shadow: 2px 4px 6px gray;
     z-index: 9999;
     position: absolute;
-    margin-top: -100px;
-    margin-left: 35rem;
-    /* margin-bottom: 50px; */
+    margin-left: 31rem;
 }
 
 #modal h3 {
@@ -95,6 +113,7 @@ nav {
 .header {
     display: flex;
     flex-direction: row;
+    align-items: center;
     justify-content: space-around;
     background-color:#226AB4;
     color: white;
@@ -109,7 +128,20 @@ nav {
 }
 
 .confirm {
-    margin-top: 70px;
+    /* margin-top: 70px; */
+    width: 8rem;
+    height: 2rem;
+    background-color: #ff5733;
+    border: none;
+    border-radius: 5px;
+    color: white;
+}
+
+.confirm:hover {
+    color: #ff5733;
+    background-color: white;
+    border: 2px solid #ff5733;
+
 }
 
 #task {
@@ -118,6 +150,39 @@ nav {
     box-shadow: 1px 2px 2px gray;
     color: rgb(16, 16, 90)
 }
+
+.sign_out {
+ width: auto;
+ height: 2rem;
+ margin-right: 1rem;
+ /* background-color: #ff5733; */
+ background-color:  #2c1915;
+ color: white;
+ border: none;
+ border-radius: 5px;
+ padding: 5px 10px;
+ cursor: pointer;
+
+}
+
+.clear_out {
+    width: auto;
+    height: 2rem;
+    border: none;
+    text-decoration: none;
+    background-color: red;
+    color: white;
+    border-radius: 5px;
+    padding: 5px 5px;
+    cursor: pointer;
+}
+
+.clear_out a{ text-decoration: none; }
+.clear_out a:visited { text-decoration: none; }
+.clear_out a:active { text-decoration: none; }
+
+
+
 
 
 

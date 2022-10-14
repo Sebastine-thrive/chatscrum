@@ -11,8 +11,16 @@ import Scrumboard from './components/scrumboard/Scrumboard';
 
 function App() {
 
+  const [fullName, setFullName] = useLocalStorage("fullname", "");
+
   const [email, setEmail] = useLocalStorage("email", "");
+
   const [password, setPassword] = useLocalStorage('password', "");
+
+  const [projectName, setProjectName] = useLocalStorage("projectname", "");
+
+  const [userType, setUserType] = useLocalStorage("usertype", "developer");
+
 
 
 
@@ -36,9 +44,12 @@ function App() {
       <div className="App">
         <Routes>
           <Route exact path='/' element={<Home />} />
+
           <Route exact path='/signin' element={<SignIn email={email} password={password} />} />
-          <Route exact path='/signup' element={<SignUp email={email} setEmail={setEmail} password={password} setPassword ={setPassword} />} />
-          <Route exact path='/scrumboard' element={<Scrumboard />} />
+
+          <Route exact path='/signup' element={<SignUp email={email} setEmail={setEmail} password={password} setPassword ={setPassword} setProjectName={setProjectName}  setUserType={setUserType} setFullName={setFullName} fullName={fullName} userType={userType} projectName={projectName} />} />
+
+          <Route exact path='/scrumboard' element={<Scrumboard fullName={fullName} userType={userType} projectName={projectName} />} />
 
           </Routes >
       </div>

@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { Link } from "react-router-dom";
+import SignIn from "../sign-in/Sign-in";
 
 const schema = yup.object().shape(
   {
@@ -18,7 +19,7 @@ const schema = yup.object().shape(
   }
 )
 
-export default function SignUp({ email, password, setEmail, setPassword }) {
+export default function SignUp({ email, password, setEmail, setPassword, setProjectName, setUserType, setFullName, fullName, userType, projectName }) {
 
 
   const {
@@ -31,15 +32,26 @@ export default function SignUp({ email, password, setEmail, setPassword }) {
     }
   );
 
-  // const refpassword = useRef(null);
-
+  const handleUserType = (e) => {
+    if (e.target.value === 'Owner') {
+      setUserType('owner')
+    } else if (e.target.value === 'Developer'){
+      setUserType('developer')
+    } else return;
+  }
 
   const onSubmit = (data) => {
     setPassword(data.password)
     setEmail(data.email)
+    setFullName(data.fullname)
+    setUserType(data.usertype)
+    setProjectName(data.projectname)
   }
-  // console.log(password)
-  // console.log(email)
+  console.log(fullName)
+  console.log(password)
+  console.log(email)
+  console.log(projectName)
+  console.log(userType)
 
 
 
@@ -68,14 +80,13 @@ export default function SignUp({ email, password, setEmail, setPassword }) {
 
 
         <label htmlFor="options">User Type</label>
-        <select id="options">
-          <option value="Developer"  {...register('usertype')} >Developer</option>
-          <option value="Owner"  {...register('usertype')}>Owner</option>
+        <select id="options" name='usertype' >
+          <option value="Owner"  {...register('usertype')} onClick={(e) => handleUserType(e)} >Owner</option>
+          <option value="Developer"  {...register('usertype')} onClick={(e) => handleUserType(e)}>Developer</option>
         </select>
 
-        {/* <Link to="/signin">  */}
-        <button className="signup_button" type='submit' > SIGN UP</button>
-        {/* </Link> */}
+          <button className="signup_button" type='submit' > SIGN UP</button>
+      
       </form>
 
       <p>Have an Account? <Link to="/signin">Sign In</Link> </p>

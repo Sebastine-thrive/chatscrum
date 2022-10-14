@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import './scrumboard.css';
 
 export class AddTask extends Component {
    state = {
@@ -22,13 +23,12 @@ export class AddTask extends Component {
         this.setState({
             content: e.target.value
         })
-        // console.log(this.state.content)
     }
 
     handleSubmit = (e) => {
         e.preventDefault();
         this.setState({
-            modalIsOpen: false
+            modalIsOpen: true
         })
         this.props.addTask(this.state)
         this.setState({
@@ -54,7 +54,6 @@ export class AddTask extends Component {
                 </div>
 
                 <button className='add' onClick={() => this.openModal()}
-                // onClick={this.addInputRef}
                 >ADD TASK</button>
             </div>
         )

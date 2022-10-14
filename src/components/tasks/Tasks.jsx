@@ -5,9 +5,13 @@ import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import './tasks.css';
 
 export default function Tasks({ data, deleteTask }) {
+    
 
     const [weeklyTask, setWeeklyTask] = useState(data);
     const [dailyTask, setDailyTask] = useState([]);
+
+
+
 
     useEffect(() => {
         setWeeklyTask(data)
@@ -76,14 +80,13 @@ export default function Tasks({ data, deleteTask }) {
                                 }}
                             >
                                 <h3> Weekly Tasks</h3>
-                                {weeklyTask?.map(({ id, name }, index) => {
+                                {weeklyTask?.map(({ id, content }, index) => {
                                     return (
                                         <Draggable key={`${id}`} draggableId={`${id}`} index={index}>
                                             {(provided) => (
-                                                <div key={`${id}`} ref={provided.innerRef} {...provided.dragHandleProps} {...provided.draggableProps}
+                                                <div key={`${id}`} ref={provided.innerRef}{...provided.dragHandleProps} {...provided.draggableProps}
                                                 >
-                                                    <p className='task'> {name} </p>
-
+                                                    <p className='task' onClick={() => { deleteTask(id) }}> {content} </p>
                                                 </div>
                                             )}
                                         </Draggable>

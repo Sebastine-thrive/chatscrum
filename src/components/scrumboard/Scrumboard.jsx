@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
+import { Link } from "react-router-dom";
+
 import "./scrumboard.css";
 
 import Data from '../static/Data';
 import AddTask from './AddTask';
 import Tasks from '../tasks/Tasks';
-import Users from '../users/Users';
-import axios from 'axios';
+// import Users from '../users/Users';
+// import axios from 'axios';
 
 export class Scrumboard extends Component {
     constructor(props) {
@@ -13,16 +15,14 @@ export class Scrumboard extends Component {
         this.state = {
             data: Data,
             modalIsOpen: false,
-            tasks: [],
+            tasks: []
         }
     }
 
-    // componentDidMount() {
-    //     axios.get("http://liveapi.chatscrum.com/scrum/api/scrumgoals/")
-    //         .then(res => this.setState({
-    //             tasks: res?.data
-    //         }))
-    // }
+    handleLogOut = () => {
+        localStorage.clear();
+        // window.location.reload();
+    }
 
     addTask = (task) => {
         task.id = Math.random().toString(36).slice(2, 9)
@@ -39,17 +39,24 @@ export class Scrumboard extends Component {
     }
 
     render() {
+
+        const { fullName, userType, projectName } = this.props;
         console.log(this.state.tasks)
         return (
             <div className='scrumboard'>
                 <nav>
                     <h1> Scrumboard</h1>
                     <div className='var'>
-                        <p>User type: {Data.usertype} </p>
-                        <p> Project Name: {Data.projectname} </p>
+                        <p>User type: <span>{userType} </span> </p>
+                        <p> Project Name: <span>{projectName} </span>  </p>
+                        <Link to='/signin'>  <button className='sign_out'>Sign Out</button>
+                        </Link>
+
+                        <Link to='/'>  <button className='clear_out' onClick={this.handleLogOut}>Clear Account</button>
+                        </Link>
                     </div>
-                </nav>
-                <p id="info">Hello {Data.fullname}, Welcome to your Scrumboard!</p>
+                </nav >
+                <p id="info">Hello  <span>{fullName}</span>, Welcome to your Scrumboard!</p>
 
                 <Tasks data={this.state.tasks} deleteTask={this.deleteTask}
                 />
@@ -57,9 +64,9 @@ export class Scrumboard extends Component {
                 <AddTask addTask={this.addTask}
                     tasks={this.state.tasks} />
 
-                <Users />
+                {/* <Users /> */}
 
-            </div>
+            </div >
         )
     }
 }
