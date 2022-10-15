@@ -2,7 +2,7 @@ import { useState, useRef } from "react";
 
 import "./sign-in.css";
 import formContent from "../static/index";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 const SignIn = ({ email, password }) => {
@@ -16,16 +16,36 @@ const SignIn = ({ email, password }) => {
 
     let input = formContent.input;
 
-    // const emailInput = useRef('');
-    // const passwordInput = useRef('')
 
+    const navigate = useNavigate();
+
+    const handleSignIn = (e) => {
+        if (emailInput !== email) {
+            e.preventDefault();
+            setEmailError(true)
+        }
+
+        if (passwordInput !== password) {
+            e.preventDefault();
+            setPassWordError(true)
+        }
+
+        if (emailInput === email && passwordInput === password) {
+            
+            setEmailError(false)
+            setPassWordError(false)
+            navigate('/scrumboard')
+        }
+    }  
 
     const handleChange = (event) => {
         setEmailInput(event.target.value);
+        setEmailError(false)
     }
 
     const handlePasswordChange = (a) => {
         setPasswordInput(a.target.value);
+        setPassWordError(false)
     }
 
     console.log(email)
@@ -41,12 +61,18 @@ const SignIn = ({ email, password }) => {
                 <label htmlFor={input[1].type}>{input[1].label}</label>
                 <input type={input[1].type} name={input[1].name} value={emailInput} onChange={handleChange} />
 
+                {emailError &&
+                    <p className="input_error">This email does not match the record</p>
+                }
+
                 <label htmlFor={input[2].type}>{input[2].label}</label>
                 <input type={input[2].type} name={input[2].name} value={passwordInput} onChange={handlePasswordChange} />
 
-                {(emailInput === email) && (passwordInput === password) ? (
-                    <Link to="/scrumboard"> <button>SIGN IN</button></Link>
-                ) : null}
+                {passwordError &&
+                    <p className="input_error">This password does not match the record</p>
+                }
+
+                <button onClick={handleSignIn}>SIGN IN</button>
 
             </form>
 

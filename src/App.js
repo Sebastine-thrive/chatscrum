@@ -23,22 +23,6 @@ function App() {
 
 
 
-
-  // const [email, setEmail] = useState(() => {
-  //   // getting stored value
-  //   const saved = localStorage.getItem("emailnp");
-  //   const initialValue = JSON.parse(saved);
-  //   return initialValue || "";
-  // });
-
-
-
-
-  // useEffect(() => {
-  //   // storing input name
-  //   localStorage.setItem("email", JSON.stringify(email));
-  // }, [email]);
-
   return (
     <BrowserRouter>
       <div className="App">

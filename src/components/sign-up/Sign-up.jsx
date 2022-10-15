@@ -5,7 +5,7 @@ import formContent from "../static/index";
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
-import { Link } from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
 import SignIn from "../sign-in/Sign-in";
 
 const schema = yup.object().shape(
@@ -33,19 +33,24 @@ export default function SignUp({ email, password, setEmail, setPassword, setProj
   );
 
   const handleUserType = (e) => {
-    if (e.target.value === 'Owner') {
+    if (e.target.value === 'owner') {
       setUserType('owner')
-    } else if (e.target.value === 'Developer'){
+    } else {
       setUserType('developer')
-    } else return;
+    } 
   }
 
+  const navigate = useNavigate();
+  
   const onSubmit = (data) => {
     setPassword(data.password)
     setEmail(data.email)
     setFullName(data.fullname)
     setUserType(data.usertype)
     setProjectName(data.projectname)
+
+    navigate('/signin');
+
   }
   console.log(fullName)
   console.log(password)
@@ -80,9 +85,11 @@ export default function SignUp({ email, password, setEmail, setPassword, setProj
 
 
         <label htmlFor="options">User Type</label>
-        <select id="options" name='usertype' >
-          <option value="Owner"  {...register('usertype')} onClick={(e) => handleUserType(e)} >Owner</option>
-          <option value="Developer"  {...register('usertype')} onClick={(e) => handleUserType(e)}>Developer</option>
+        <select id="options" {...register('usertype')} name='usertype' onChange={(e) => handleUserType(e)} >
+          {/* <option role='placeholder'  > {userType}</option> */}
+          <option value="developer"> developer  </option>
+          <option value="owner"> owner </option>
+
         </select>
 
           <button className="signup_button" type='submit' > SIGN UP</button>
@@ -95,4 +102,3 @@ export default function SignUp({ email, password, setEmail, setPassword, setProj
   )
 }
 
-// export default SignUp;  
