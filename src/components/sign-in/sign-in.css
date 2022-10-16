@@ -56,3 +56,8 @@ label {
     border: 1px solid #25af51;
 }
 
+.input_error{
+    font-size: 13px;
+    color: red;
+    margin-top: -10px;
+}

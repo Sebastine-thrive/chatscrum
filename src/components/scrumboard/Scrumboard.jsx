@@ -52,7 +52,7 @@ export class Scrumboard extends Component {
                         <Link to='/signin'>  <button className='sign_out'>Sign Out</button>
                         </Link>
 
-                        <Link to='/'>  <button className='clear_out' onClick={this.handleLogOut}>Clear Account</button>
+                        <Link to='/home2'>  <button className='clear_out' onClick={this.handleLogOut}>Clear Account</button>
                         </Link>
                     </div>
                 </nav >

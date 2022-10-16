@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { Link, useNavigate} from "react-router-dom";
-import SignIn from "../sign-in/Sign-in";
+// import SignIn from "../sign-in/Sign-in";
 
 const schema = yup.object().shape(
   {
@@ -15,7 +15,7 @@ const schema = yup.object().shape(
     projectname: yup.string().required().min(3),
     password: yup.string().required("Please enter password").matches(
       /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?$]{8,}$/,
-      "Your password Must contain 8 or more Characterters, One Uppercase, One lowercase, One Number and one Special case Character")
+      "Your password Must contain 8 or more Characterters, at least one UPPERCASE, one lowercase, One Number and one Special case Character")
   }
 )
 
@@ -50,15 +50,14 @@ export default function SignUp({ email, password, setEmail, setPassword, setProj
     setProjectName(data.projectname)
 
     navigate('/signin');
-
   }
+
+
   console.log(fullName)
   console.log(password)
   console.log(email)
   console.log(projectName)
   console.log(userType)
-
-
 
 
   return (
