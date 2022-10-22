@@ -5,7 +5,7 @@ import formContent from "../static/index";
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
-import { Link, useNavigate} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 // import SignIn from "../sign-in/Sign-in";
 
 const schema = yup.object().shape(
@@ -37,11 +37,11 @@ export default function SignUp({ email, password, setEmail, setPassword, setProj
       setUserType('owner')
     } else {
       setUserType('developer')
-    } 
+    }
   }
 
   const navigate = useNavigate();
-  
+
   const onSubmit = (data) => {
     setPassword(data.password)
     setEmail(data.email)
@@ -61,42 +61,44 @@ export default function SignUp({ email, password, setEmail, setPassword, setProj
 
 
   return (
-    <div className='sign-up'>
-      <h1>Don't have an account?</h1>
-      <h2>Sign up here!</h2>
+    <div className="signup_body" body>
+      <div className='sign-up'>
+        <h1>Don't have an account?</h1>
+        <h2>Sign up here!</h2>
 
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <label htmlFor="full name"> Full Name</label>
-        <input type="text" name="fullname" {...register('fullname')} />
-        <p className="error-message">{errors['fullname']?.message}</p>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <label htmlFor="full name"> Full Name</label>
+          <input type="text" name="fullname" {...register('fullname')} />
+          <p className="error-message">{errors['fullname']?.message}</p>
 
-        <label htmlFor="full name"> Email</label>
-        <input type="email" name="email"  {...register('email')} />
-        <p className="error-message">{errors['email']?.message}</p>
+          <label htmlFor="full name"> Email</label>
+          <input type="email" name="email"  {...register('email')} />
+          <p className="error-message">{errors['email']?.message}</p>
 
-        <label htmlFor="full name"> Password</label>
-        <input type="password" name="password" {...register('password')} />
-        <p className="error-message">{errors['password']?.message}</p>
+          <label htmlFor="full name"> Password</label>
+          <input type="password" name="password" {...register('password')} />
+          <p className="error-message">{errors['password']?.message}</p>
 
-        <label htmlFor="full name"> Project Name</label>
-        <input type="text" name="projectname" {...register('projectname')} />
-        <p className="error-message">{errors['projectname']?.message}</p>
+          <label htmlFor="full name"> Project Name</label>
+          <input type="text" name="projectname" {...register('projectname')} />
+          <p className="error-message">{errors['projectname']?.message}</p>
 
 
-        <label htmlFor="options">User Type</label>
-        <select id="options" {...register('usertype')} name='usertype' onChange={(e) => handleUserType(e)} >
-          {/* <option role='placeholder'  > {userType}</option> */}
-          <option value="developer"> developer  </option>
-          <option value="owner"> owner </option>
+          <label htmlFor="options">User Type</label>
+          <select id="options" {...register('usertype')} name='usertype' onChange={(e) => handleUserType(e)} >
+            {/* <option role='placeholder'  > {userType}</option> */}
+            <option value="developer"> developer  </option>
+            <option value="owner"> owner </option>
 
-        </select>
+          </select>
 
           <button className="signup_button" type='submit' > SIGN UP</button>
-      
-      </form>
 
-      <p>Have an Account? <Link to="/signin">Sign In</Link> </p>
-      <p><Link to="/">Back to Home </Link></p>
+        </form>
+
+        <p>Have an Account? <Link to="/signin"> <span className="signin_redirect">Sign In</span> </Link> </p>
+        <p><Link to="/"> <span className="back"> Back to Home </span> </Link></p>
+      </div>
     </div>
   )
 }

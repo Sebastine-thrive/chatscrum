@@ -45,7 +45,7 @@ export class Scrumboard extends Component {
         return (
             <div className='scrumboard'>
                 <nav>
-                    <h1> Scrumboard</h1>
+                    <h1> Scrumlife</h1>
                     <div className='var'>
                         <p>User type: <span>{userType} </span> </p>
                         <p> Project Name: <span>{projectName} </span>  </p>

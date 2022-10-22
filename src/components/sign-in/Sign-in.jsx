@@ -7,14 +7,18 @@ import { Link, useNavigate } from "react-router-dom";
 
 const SignIn = ({ email, password }) => {
 
+
     const [emailInput, setEmailInput] = useState('');
     const [passwordInput, setPasswordInput] = useState('');
 
+    const [signUpError, setSignUpError] = useState(null);
+
+
     const [emailError, setEmailError] = useState(false);
-    const [emailEmpty, setEmailEmpty] = useState(false);
+    const [emailEmpty, setEmailEmpty] = useState(true);
 
     const [passwordError, setPassWordError] = useState(false);
-    const [passwordEmpty, setPassWordEmpty] = useState(false);
+    const [passwordEmpty, setPassWordEmpty] = useState(true);
 
 
 
@@ -44,13 +48,19 @@ const SignIn = ({ email, password }) => {
             setPassWordError(true)
         }
 
-        if (emailInput === email && passwordInput === password) {
+        if ((email.length < 1 && emailInput.length < 1) && (password.length < 1 && passwordInput.length < 1)) {
+            e.preventDefault();
+            setSignUpError(true)
+        }
+
+        if ((signUpError === false) && (emailInput === email && passwordInput === password)) {
 
             setEmailError(false)
             setPassWordError(false)
             navigate('/scrumboard')
         }
     }
+
 
     const handleEmailChange = (event) => {
         setEmailInput(event.target.value);
@@ -69,38 +79,44 @@ const SignIn = ({ email, password }) => {
     console.log(password)
 
     return (
-        <div className='sign-in'>
-            <h1>Have an account already?</h1>
-            <h2>Sign In here!</h2>
+        <div className="signin_body">
+            <div className='sign-in'>
+                <h1>Have an account already?</h1>
+                <h2>Sign In here!</h2>
 
-            <form>
-                <label htmlFor={input[1].type}>{input[1].label}</label>
-                <input type={input[1].type} name={input[1].name} value={emailInput} onChange={handleEmailChange} />
+                <form>
+                    <label htmlFor={input[1].type}>{input[1].label}</label>
+                    <input type={input[1].type} name={input[1].name} value={emailInput} onChange={handleEmailChange} />
 
-                {emailEmpty &&
-                    <p className="input_error emailempty"> Email is empty! Input email</p>
-                }
+                    {emailEmpty &&
+                        <p className="input_error emailempty"> Email is empty! Input email</p>
+                    }
 
-                {(!emailEmpty && emailError) &&
-                    <p className="input_error emailerror">This email does not match any record. Note that email is case sensitive</p>
-                }
+                    {(!emailEmpty && emailError) &&
+                        <p className="input_error emailerror">This email does not match any record. Note that email is case sensitive</p>
+                    }
 
-                <label htmlFor={input[2].type}>{input[2].label}</label>
-                <input type={input[2].type} name={input[2].name} value={passwordInput} onChange={handlePasswordChange} />
+                    <label htmlFor={input[2].type}>{input[2].label}</label>
+                    <input type={input[2].type} name={input[2].name} value={passwordInput} onChange={handlePasswordChange} />
 
-                {passwordEmpty &&
-                    <p className="input_error passwordempty"> Password is empty! Input password</p>
-                }
+                    {passwordEmpty &&
+                        <p className="input_error passwordempty"> Password is empty! Input password</p>
+                    }
 
-                {(!passwordEmpty && passwordError) &&
-                    <p className="input_error passworderror">This password does not match any record</p>
-                }
+                    {(!passwordEmpty && passwordError) &&
+                        <p className="input_error passworderror">This password does not match any record</p>
+                    }
 
-                <button onClick={handleSignIn}>SIGN IN</button>
+                    { (signUpError === true) &&
+                        <p className="input_error signup_error">You need to Sign up first</p>
+                    }
 
-            </form>
+                    <button onClick={handleSignIn}> SIGN IN</button>
 
-            <p>Don't Have an Account? <Link to="/signup">Sign up</Link></p>
+                </form>
+
+                <p>Don't Have an Account? <Link to="/signup"> <span className="signup_redirect"> Sign up </span> </Link></p>
+            </div>
         </div>
     )
 }
