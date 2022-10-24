@@ -1,63 +1,62 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import './scrumboard.css';
 
-export class AddTask extends Component {
-   state = {
-     content: ""
-   }
+import { v4 as uuidv4 } from 'uuid';
 
-    openModal = () => {
-        this.setState({
-            modalIsOpen: true
-        });
-        // this.addInputRef();
+
+// export class AddTask extends Component {
+export default function AddTask({addTask, setTasks, modalIsOpen, setModalIsOpen}) {
+
+    const [content, setContent] = useState('');
+
+
+    const openModal = () => {
+        setModalIsOpen(true);
     }
 
-    closeModal = () => {
-        this.setState({
-            modalIsOpen: false
-        })
+    const closeModal = () => {
+        setModalIsOpen(false);
     }
 
-    handleChange = (e) => {
-        this.setState({
-            content: e.target.value
-        })
+    const handleChange = (e) => {
+
+        
+        setContent(e.target.value)
+       
     }
 
-    handleSubmit = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-        this.setState({
-            modalIsOpen: true
-        })
-        this.props.addTask(this.state)
-        this.setState({
-            content: ""
-        })
+        setModalIsOpen(true);
+        if (content.length < 1) {
+            return;
+        } else {
+        addTask({id:uuidv4(), text :content});
+        setContent('')
+        }
     }
 
-    render() {
     
         return (
             <div className='add-task'>
-                <div id='modal' className={this.state.modalIsOpen ? "show" : "hidden"}>
+                <div id='modal' className={modalIsOpen ? "show" : "hidden"}>
                     <div className='header'>
                         <h3>Add a new task</h3>
-                        <h2 id="close" onClick={() => this.closeModal()}>X</h2>
+                        <h2 id="close" onClick={closeModal}>X</h2>
                     </div>
 
-                    <form onSubmit={this.handleSubmit}>
-                        <input type="text" onChange={this.handleChange} value={this.state.content}
-                        />
+                    <form onSubmit={handleSubmit}>
+                        <input placeholder='write your task' type="text" onChange={handleChange} value={content} id='task-input'
+                        /> <br />
                         <button className='confirm'>CONFIRM</button>
                     </form>
                 </div>
 
-                <button className='add' onClick={() => this.openModal()}
+                <button className='add' onClick={openModal}
                 >ADD TASK</button>
             </div>
         )
     }
-}
 
-export default AddTask
+
+// export default AddTask

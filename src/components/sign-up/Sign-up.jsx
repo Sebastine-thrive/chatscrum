@@ -1,12 +1,10 @@
 import React, { useRef, useEffect } from "react";
 
 import "./sign-up.css";
-import formContent from "../static/index";
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { Link, useNavigate } from "react-router-dom";
-// import SignIn from "../sign-in/Sign-in";
 
 const schema = yup.object().shape(
   {
@@ -19,7 +17,7 @@ const schema = yup.object().shape(
   }
 )
 
-export default function SignUp({ email, password, setEmail, setPassword, setProjectName, setUserType, setFullName, fullName, userType, projectName }) {
+export default function SignUp({ email, password, setEmail, setPassword, setProjectName, setUserType, setFullName, fullName, userType, projectName, setUser }) {
 
 
   const {
@@ -61,34 +59,30 @@ export default function SignUp({ email, password, setEmail, setPassword, setProj
 
 
   return (
-    <div className="signup_body" body>
+    <div className="signup_body" >
       <div className='sign-up'>
         <h1>Don't have an account?</h1>
         <h2>Sign up here!</h2>
 
         <form onSubmit={handleSubmit(onSubmit)}>
-          <label htmlFor="full name"> Full Name</label>
-          <input type="text" name="fullname" {...register('fullname')} />
+
+          <input type="text" name="fullname" {...register('fullname')} placeholder="full name" />
           <p className="error-message">{errors['fullname']?.message}</p>
 
-          <label htmlFor="full name"> Email</label>
-          <input type="email" name="email"  {...register('email')} />
+          <input type="email" name="email"  {...register('email')} placeholder="input email" />
           <p className="error-message">{errors['email']?.message}</p>
 
-          <label htmlFor="full name"> Password</label>
-          <input type="password" name="password" {...register('password')} />
+          <input type="password" name="password" {...register('password')} placeholder="input password" />
           <p className="error-message">{errors['password']?.message}</p>
 
-          <label htmlFor="full name"> Project Name</label>
-          <input type="text" name="projectname" {...register('projectname')} />
+          <input type="text" name="projectname" {...register('projectname')} placeholder="project name"  />
           <p className="error-message">{errors['projectname']?.message}</p>
 
 
           <label htmlFor="options">User Type</label>
           <select id="options" {...register('usertype')} name='usertype' onChange={(e) => handleUserType(e)} >
-            {/* <option role='placeholder'  > {userType}</option> */}
-            <option value="developer"> developer  </option>
-            <option value="owner"> owner </option>
+            <option id="option" value="developer"> developer  </option>
+            <option id="option" value="owner"> owner </option>
 
           </select>
 

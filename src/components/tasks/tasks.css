@@ -20,7 +20,8 @@
 
 .task {
     width: 24rem;
-    height: 1.5rem;
+    /* height: 1.5rem; */
+    height: auto;
     box-shadow: 2px 4px 6px gray; 
     background-color: white;
     color: black;
@@ -29,6 +30,62 @@
     padding: 6px 0;
     text-transform: capitalize;
     font-weight: 600;
+    /* overflow-y: scroll; */
 }    
 
+@media(max-width: 1300px) {
 
+}
+
+@media(max-width: 991px){
+     .task {
+         width: 18.5rem;
+     }
+}
+
+@media(max-width: 769px) {
+     .task {
+         width: 25rem;
+     }
+}
+
+@media(max-width: 600px){
+     .task {
+         width: 25rem;
+     }
+}
+
+@media(max-width: 415px){
+     .weekly, .daily {
+         width: 400px;
+}
+ .task {
+         width: 21rem;
+     }
+}
+
+@media(max-width: 376px){
+     .weekly, .daily {
+         width: 330px;
+     }
+
+     .task {
+         width: 16rem;
+     }
+}
+
+@media(max-width: 321px){
+     .weekly, .daily {
+         width: 300px;
+     }
+}
+
+@media(max-width: 281px){
+    .weekly, .daily {
+    width: 250px;
+}
+
+ .task {
+         width: 13rem;
+     }
+}

@@ -4,7 +4,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #25af51;
+    /* background-color: #25af51; */
 }
 
 .sign-in {
@@ -16,7 +16,7 @@
     /* margin: 0 auto; */
     align-items: center;
     padding: 10px 0;
-    box-shadow: 1px 2px 3px 4px rgba(20,20,20,0.4);
+    /* box-shadow: 1px 2px 3px 4px rgba(20,20,20,0.4); */
     transform: scale(0.85);
 }
 
@@ -28,6 +28,7 @@
 
 .sign-in h2 {
     margin-bottom: 3rem;
+    color: #ff5733;
 }
 
 label {
@@ -41,10 +42,19 @@ label {
 .sign-in input[type=email]
  {
     width: 300px;
-    margin: 10px 0;
+    margin: 20px 0;
+    border: 1px solid #226AB4;
     padding: 10px;
     border-radius: 6px;
     outline: none; 
+}
+
+
+.sign-in input[type=text]:focus,
+.sign-in input[type=password]:focus,
+.sign-in input[type=email]:focus
+{
+border: none;
 }
 
 .sign-in button {
@@ -86,23 +96,23 @@ label {
 @media(max-width: 1300px){
              
 .sign-in {
-      margin-left: 0;
+        width: 700px;
+        margin-left: 0;
         margin-right: 0; 
         margin-bottom: 0; 
-        transform: scale(1, 1);
 }
 
 }
 
 @media(max-width: 991px){
-         
+
 .sign-in {
-        transform: scale(1, 1);
-      margin-left: -2.2rem;
+      width: 700px;
+      margin-left: -1.5rem;
       margin-right: .5rem; 
       margin-bottom: 0; 
-
 }
+
 
 }
 
@@ -139,11 +149,13 @@ label {
 @media(max-width: 376px){
 
 .sign-in {
-    transform: scale(0.85, 0.75);
       margin-left: 1rem;
       margin-right: 1rem; 
       margin-bottom: 0; 
+}
 
+.sign-in h1 {
+    font-size: 26px;
 }
     
 .sign-in input[type=text],
@@ -156,12 +168,10 @@ label {
 
 @media(max-width: 321px){
 .sign-in {
-      transform: scale(0.85, 0.65);
         margin-left: 1rem;
         margin-right: 1rem; 
         margin-bottom: 0; 
 }
-
 
 .sign-in input[type=text],
 .sign-in input[type=password],
@@ -169,13 +179,11 @@ label {
     width: 250px;
 }
 
-
 }
 
 
 @media(max-width: 281px){
 .sign-in {
-      transform: scale(0.85, 0.65);
         margin-left: 1rem;
         margin-right: 1rem; 
         margin-bottom: 0; 

@@ -1,7 +1,8 @@
 .scrumboard {
     position: relative;
-    scroll-behavior: smooth;
     margin-bottom: 70px;
+    scroll-behavior: smooth;
+
 }
 
 .boxes {
@@ -127,8 +128,26 @@
     padding-left: 30px;
 }
 
+#modal form {
+    padding: 1.8rem 0;
+}
+#modal #task-input {
+    width: 15rem;
+    border: 2px solid #226AB4;
+    padding-left: 6px;
+    height: 2rem;
+    /* margin:0 2rem ; */
+}
+
+#modal #task-input:focus{
+    border: none;
+    border-radius: 3px;
+    background-color: #ecf0f3;
+    -moz-border: 0;
+}
+
 .confirm {
-    /* margin-top: 70px; */
+    margin-top: 0.5rem;
     width: 8rem;
     height: 2rem;
     background-color: #ff5733;
@@ -155,38 +174,61 @@
  width: auto;
  height: 2rem;
  margin-right: 1rem;
- /* background-color: #ff5733; */
  background-color:  #2c1915;
  color: white;
  border: none;
  border-radius: 5px;
  padding: 5px 10px;
  cursor: pointer;
+}
 
+.sign_out:hover {
+    background-color: white;
+    color: black;
 }
 
 .clear_out {
     width: auto;
     height: 2rem;
-    border: none;
+    border: 1px solid red;
     text-decoration: none;
-    background-color: red;
-    color: white;
+    /* background-color: red; */
+    color: red;
     border-radius: 5px;
     padding: 5px 5px;
     cursor: pointer;
 }
 
+.clear_out:hover {
+    background-color: red;
+    color: white;
+}
 .clear_out a{ text-decoration: none; }
 .clear_out a:visited { text-decoration: none; }
 .clear_out a:active { text-decoration: none; }
 
 
+@media(max-width: 1300px) {
+  #modal {
+        margin-left: 26rem;
+    }
 
+}
 
+@media(max-width: 1025px) {
+ #modal {
+        margin-left: 18rem;
+    }
+}
 
+@media(max-width: 991px){
+     #modal {
+        margin-left: 190px;
+    }
 
-@media(max-width: 767px) {
+}
+
+@media(max-width: 769px) {
     .boxes {
         flex-direction: column;
         align-items: center;
@@ -198,6 +240,103 @@
 
     #modal {
         margin-top: -430px;
-        margin-left: 83px;
+        margin-left: 160px;
     }
+}
+
+@media(max-width: 600px) {
+ #modal {
+    width:394px;
+    margin-left: 80px;
+
+
+}
+}
+
+@media(max-width: 415px){
+     .scrumboard nav {
+        width: 100vw;
+        padding-left:  10px;
+        padding-right: 20px;
+    }
+    .var p {
+        margin-top: -1rem;
+        padding-right: 18px;
+    }
+.var .clear_out {
+    margin-right: 3rem;
+    margin-top: 2rem;
+}
+
+#modal {
+    width:392px;
+    margin-left:0.5rem;
+}
+
+}
+
+@media(max-width: 376px) {
+    .scrumboard nav {
+        width: 100vw;
+        padding-left:  10px;
+        padding-right: 20px;
+    }
+    .var p {
+        margin-top: -1rem;
+        padding-right: 15px;
+    }
+.var .clear_out {
+    margin-right: 2rem;
+    margin-top: 2rem;
+}
+
+    #modal {
+        width: 300px;
+        margin-left: 2.5rem;
+
+    }
+}
+@media(max-width: 321px){
+      .var p {
+        margin-top: -1rem;
+        padding-right: 15px;
+    }
+
+    .var .outlinks {
+        width: 10rem;
+    }
+
+    .var .clear_out {
+        margin-right: -1.6rem;
+        margin-left: 0;
+    }
+    .var .sign_out {
+        margin-right: 1rem;
+    }
+
+      #modal {
+        width: 300px;
+        margin-left: 0.5rem;
+    }
+
+}
+
+
+@media(max-width: 281px){
+     .var .outlinks {
+        width: 8rem;
+    }
+      
+.var .clear_out {
+    margin-right: -1rem;
+    margin-top: .5rem;
+}
+ .var .sign_out {
+        margin-right: -0.6rem;
+    }
+
+ #modal {
+        width: 270px;
+    }
+    
 }

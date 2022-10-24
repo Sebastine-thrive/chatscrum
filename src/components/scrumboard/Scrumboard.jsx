@@ -1,74 +1,71 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 
 import "./scrumboard.css";
 
-import Data from '../static/Data';
 import AddTask from './AddTask';
 import Tasks from '../tasks/Tasks';
-// import Users from '../users/Users';
-// import axios from 'axios';
+import { useLocalStorage } from '../LocalStorage';
 
-export class Scrumboard extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            data: Data,
-            modalIsOpen: false,
-            tasks: []
-        }
-    }
 
-    handleLogOut = () => {
+export default function Scrumboard({ fullName, userType, projectName, setEmail, setPassword, setUser }) {
+    const [modalIsOpen, setModalIsOpen] = useState(false);
+    const [tasks, setTasks] =
+     useLocalStorage('tasks', []);
+
+
+    const handleLogOut = () => {
         localStorage.clear();
-        // window.location.reload();
+        setEmail(null)
+        setPassword(null)
+        setUser(null)
+
     }
 
-    addTask = (task) => {
-        task.id = Math.random().toString(36).slice(2, 9)
-        let tasks = [...this.state.tasks, task]
-        this.setState({
-            tasks
-        })
+    const addTask = task => {
+
+        const allTasks = [task, ...tasks,]
+        setTasks(allTasks)
+        console.log(task.id)
     }
 
-    deleteTask = (id) => {
-        const tasks = this.state.tasks.filter(task => task.id !== id
+    const deleteTask = (id) => {
+        const remainingTasks = tasks.filter(task => task.id !== id
         )
-        this.setState({ tasks })
+        setTasks({ remainingTasks })
     }
 
-    render() {
+    console.log(tasks)
+    return (
+        <div className='scrumboard'>
+            <nav>
+                <h1> Scrumlife</h1>
+                <div className='var'>
+                    <p>User type: <span>{userType} </span> </p>
+                    <p> Project Name: <span>{projectName} </span>  </p>
 
-        const { fullName, userType, projectName } = this.props;
-        console.log(this.state.tasks)
-        return (
-            <div className='scrumboard'>
-                <nav>
-                    <h1> Scrumlife</h1>
-                    <div className='var'>
-                        <p>User type: <span>{userType} </span> </p>
-                        <p> Project Name: <span>{projectName} </span>  </p>
+                    <div className='outlinks'>
                         <Link to='/signin'>  <button className='sign_out'>Sign Out</button>
                         </Link>
 
-                        <Link to='/home2'>  <button className='clear_out' onClick={this.handleLogOut}>Clear Account</button>
+                        <Link to='/'>  <button className='clear_out' onClick={handleLogOut}>Clear Account</button>
                         </Link>
                     </div>
-                </nav >
-                <p id="info">Hello  <span>{fullName}</span>, Welcome to your Scrumboard!</p>
+                </div>
+            </nav >
+            <p id="info">Hello  <span>{fullName}</span>, Welcome to your Scrumboard!</p>
 
-                <Tasks data={this.state.tasks} deleteTask={this.deleteTask}
+            <div>
+                <Tasks data={tasks} deleteTask={deleteTask}
                 />
+            </div>
 
-                <AddTask addTask={this.addTask}
-                    tasks={this.state.tasks} />
-
-                {/* <Users /> */}
-
-            </div >
-        )
-    }
+            <div>
+                <AddTask
+                    tasks={tasks} setTasks={setTasks} modalIsOpen={modalIsOpen} setModalIsOpen={setModalIsOpen} addTask={addTask} />
+            </div>
+        </div >
+    )
 }
 
-export default Scrumboard
+

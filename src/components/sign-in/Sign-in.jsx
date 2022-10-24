@@ -11,7 +11,7 @@ const SignIn = ({ email, password }) => {
     const [emailInput, setEmailInput] = useState('');
     const [passwordInput, setPasswordInput] = useState('');
 
-    const [signUpError, setSignUpError] = useState(null);
+    const [signUpError, setSignUpError] = useState(false);
 
 
     const [emailError, setEmailError] = useState(false);
@@ -28,6 +28,15 @@ const SignIn = ({ email, password }) => {
     const navigate = useNavigate();
 
     const handleSignIn = (e) => {
+        setSignUpError(true)
+        if (email && password) {
+            setSignUpError(false)
+        }
+        if (!email && !password) {
+            e.preventDefault();
+            setSignUpError(true)
+        }
+        
         if (emailInput.length < 1) {
             e.preventDefault();
             setEmailEmpty(true)
@@ -48,13 +57,9 @@ const SignIn = ({ email, password }) => {
             setPassWordError(true)
         }
 
-        if ((email.length < 1 && emailInput.length < 1) && (password.length < 1 && passwordInput.length < 1)) {
-            e.preventDefault();
-            setSignUpError(true)
-        }
+        
 
         if ((signUpError === false) && (emailInput === email && passwordInput === password)) {
-
             setEmailError(false)
             setPassWordError(false)
             navigate('/scrumboard')
@@ -85,8 +90,7 @@ const SignIn = ({ email, password }) => {
                 <h2>Sign In here!</h2>
 
                 <form>
-                    <label htmlFor={input[1].type}>{input[1].label}</label>
-                    <input type={input[1].type} name={input[1].name} value={emailInput} onChange={handleEmailChange} />
+                    <input placeholder="Email" type={input[1].type} name={input[1].name} value={emailInput} onChange={handleEmailChange} />
 
                     {emailEmpty &&
                         <p className="input_error emailempty"> Email is empty! Input email</p>
@@ -96,8 +100,7 @@ const SignIn = ({ email, password }) => {
                         <p className="input_error emailerror">This email does not match any record. Note that email is case sensitive</p>
                     }
 
-                    <label htmlFor={input[2].type}>{input[2].label}</label>
-                    <input type={input[2].type} name={input[2].name} value={passwordInput} onChange={handlePasswordChange} />
+                    <input placeholder="Password" type={input[2].type} name={input[2].name} value={passwordInput} onChange={handlePasswordChange} />
 
                     {passwordEmpty &&
                         <p className="input_error passwordempty"> Password is empty! Input password</p>

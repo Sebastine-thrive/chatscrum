@@ -1,0 +1,1 @@
+I resolved the issue of content not displaying at the scrumboard by using same name used for the data object for the p tag display on scrumboard.
