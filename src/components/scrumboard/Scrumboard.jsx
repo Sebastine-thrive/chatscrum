@@ -16,14 +16,13 @@ export default function Scrumboard({ fullName, userType, projectName, setEmail, 
 
     const handleLogOut = () => {
         localStorage.clear();
-        setEmail(null)
-        setPassword(null)
-        setUser(null)
+        setEmail(null);
+        setPassword(null);
+        setUser(false);
 
     }
 
     const addTask = task => {
-
         const allTasks = [task, ...tasks,]
         setTasks(allTasks)
         console.log(task.id)

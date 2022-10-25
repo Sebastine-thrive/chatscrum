@@ -17,7 +17,7 @@ const schema = yup.object().shape(
   }
 )
 
-export default function SignUp({ email, password, setEmail, setPassword, setProjectName, setUserType, setFullName, fullName, userType, projectName, setUser }) {
+export default function SignUp({ email, password, setEmail, setPassword, setProjectName, setUserType, setFullName, fullName, userType, projectName, user, setUser }) {
 
 
   const {
@@ -41,11 +41,13 @@ export default function SignUp({ email, password, setEmail, setPassword, setProj
   const navigate = useNavigate();
 
   const onSubmit = (data) => {
-    setPassword(data.password)
-    setEmail(data.email)
-    setFullName(data.fullname)
-    setUserType(data.usertype)
-    setProjectName(data.projectname)
+    setPassword(data.password);
+    setEmail(data.email);
+    setFullName(data.fullname);
+    setUserType(data.usertype);
+    setProjectName(data.projectname);
+    setUser(true);
+    console.log(user)
 
     navigate('/signin');
   }

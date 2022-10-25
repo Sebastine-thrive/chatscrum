@@ -5,7 +5,7 @@ import formContent from "../static/index";
 import { Link, useNavigate } from "react-router-dom";
 
 
-const SignIn = ({ email, password }) => {
+const SignIn = ({ email, password, user }) => {
 
 
     const [emailInput, setEmailInput] = useState('');
@@ -28,7 +28,6 @@ const SignIn = ({ email, password }) => {
     const navigate = useNavigate();
 
     const handleSignIn = (e) => {
-        setSignUpError(true)
         if (email && password) {
             setSignUpError(false)
         }
@@ -57,7 +56,6 @@ const SignIn = ({ email, password }) => {
             setPassWordError(true)
         }
 
-        
 
         if ((signUpError === false) && (emailInput === email && passwordInput === password)) {
             setEmailError(false)
@@ -82,6 +80,7 @@ const SignIn = ({ email, password }) => {
     console.log(email)
     console.log(passwordInput)
     console.log(password)
+    console.log(user);
 
     return (
         <div className="signin_body">

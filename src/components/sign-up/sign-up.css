@@ -143,6 +143,7 @@
 
 @media(max-width: 769px){
      .sign-up {
+         margin-top: 3rem;
         margin-bottom: 0; 
     }
 
@@ -160,6 +161,7 @@
 }
 @media(max-width: 376px){
     .sign-up {
+        margin-top: 7rem;
         margin-left: -.2rem;
         margin-right: 0; 
         margin-bottom: 0; 
@@ -173,6 +175,7 @@
 @media(max-width: 321px){
    
     .sign-up {
+        margin-top: 5.5rem;
         margin-left:-0.2rem;
         margin-bottom: 0; 
     }
@@ -184,7 +187,11 @@
 
         .sign-up h2 {
             font-size: 22px;
+        } 
+        .sign-up label{
+            margin-left: 2rem;
         }
+
     
 .sign-up form input[type=text],
 .sign-up form input[type=password],
@@ -202,8 +209,13 @@
 @media(max-width: 281px){
       .sign-up {
         margin-left: 0;
+        /* margin-right: 2rem; */
         margin-bottom: 0; 
     }
+
+      .sign-up label{
+            margin-left: 4rem;
+        }
 
        
 .sign-up form input[type=text],
