@@ -7,18 +7,16 @@ import './tasks.css';
 
 export default function Tasks({ data }) {
 
-    const [weeklyTask, setWeeklyTask] = useLocalStorage('weeklyTask', data);
+    const [weeklyTask, setWeeklyTask] = 
+    // useState(data);
+    useLocalStorage('weeklyTask', data);
+    
     const [dailyTask, setDailyTask] = useLocalStorage('dailyTask', []);
 
     useEffect(() => {
         setWeeklyTask(data)
     }, [data]);
 
-
-    // const SaveTasks = () => {
-    //     setWeeklyTask(weeklyTask)
-    //     useLocalStorage('weeklyTask', data)
-    // }
 
     const handleOnDragEnd = result => {
         // getting the source and destination object

@@ -5,6 +5,8 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { Link, useNavigate } from "react-router-dom";
+import { useStateContext } from '../ContextProvider';
+
 
 const schema = yup.object().shape(
   {
@@ -17,7 +19,9 @@ const schema = yup.object().shape(
   }
 )
 
-export default function SignUp({ email, password, setEmail, setPassword, setProjectName, setUserType, setFullName, fullName, userType, projectName, user, setUser }) {
+export default function SignUp() {
+  
+  const {email, password, setEmail, setPassword, setProjectName, setUserType, setFullName, fullName, userType, projectName, user, setUser } = useStateContext()
 
 
   const {

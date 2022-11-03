@@ -3,9 +3,12 @@ import { useState } from "react";
 import "./sign-in.css";
 import formContent from "../static/index";
 import { Link, useNavigate } from "react-router-dom";
+import { useStateContext } from "../ContextProvider";
 
 
-const SignIn = ({ email, password, user }) => {
+const SignIn = () => {
+    const {email, password, user, setUser} = useStateContext()
+    
 
 
     const [emailInput, setEmailInput] = useState('');
@@ -60,10 +63,10 @@ const SignIn = ({ email, password, user }) => {
         if ((signUpError === false) && (emailInput === email && passwordInput === password)) {
             setEmailError(false)
             setPassWordError(false)
+            setUser(true)
             navigate('/scrumboard')
         }
     }
-
 
     const handleEmailChange = (event) => {
         setEmailInput(event.target.value);

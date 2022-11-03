@@ -19,10 +19,7 @@ export default function AddTask({addTask, setTasks, modalIsOpen, setModalIsOpen}
     }
 
     const handleChange = (e) => {
-
-        
         setContent(e.target.value)
-       
     }
 
     const handleSubmit = (e) => {
@@ -59,4 +56,3 @@ export default function AddTask({addTask, setTasks, modalIsOpen, setModalIsOpen}
     }
 
 
-// export default AddTask
