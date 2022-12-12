@@ -20,8 +20,7 @@ export default function Scrumboard() {
     const [modalIsOpen, setModalIsOpen] = useState(false);
     // const [tasks, setTasks] = 
     // useState([])
-    const [tasks, setTasks] =
-        useState([])
+    const [tasks, setTasks] = useState([]);
 
     const handleLogOut = () => {
         localStorage.clear();
@@ -37,17 +36,11 @@ export default function Scrumboard() {
         console.log(task.id)
     }
 
-    const deleteTask = (id) => {
-        const remainingTasks = tasks.filter(task => task.id !== id
-        )
-        setTasks({ remainingTasks })
-    }
-
     console.log(tasks)
     return (
         <div className='scrumboard'>
             <nav>
-                <h1> Scrumlife</h1>
+                <h1> ScrumLife</h1>
                 <div className='var'>
                     <p>User type: <span>{userType} </span> </p>
                     <p> Project Name: <span>{projectName} </span>  </p>
@@ -64,7 +57,8 @@ export default function Scrumboard() {
             <p id="info">Hello  <span>{fullName}</span>, Welcome to your Scrumboard!</p>
 
             <div>
-                <Tasks data={tasks} deleteTask={deleteTask}
+                <Tasks data={tasks} 
+                // deleteTask={deleteTask}
                 />
             </div>
 

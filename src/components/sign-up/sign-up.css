@@ -14,7 +14,7 @@
      margin: 0 auto;
     align-items: center;
     padding: 10px 0;
-    background-color: #ecf0f3;
+    background-color: rgb(207 250 254);
     transform: scale(0.75);
 }
 
@@ -27,7 +27,7 @@
 
 .sign-up h2 {
     margin-bottom: 3rem;
-    color: #ff5733;
+    color: #D18B0A;
 }
 
 .sign-up label {
@@ -99,12 +99,10 @@
 
 .signin_redirect {
     color:#226AB4  ;
-    text-decoration: none;
 }
 
 .back {
      color:#226AB4  ;
-    text-decoration: none;
 }
 
 

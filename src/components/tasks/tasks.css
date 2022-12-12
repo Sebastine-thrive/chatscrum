@@ -10,32 +10,52 @@
  .weekly h3{
      position: -webkit-sticky;
      position: sticky;
-     /* background-color: #87b3df; */
+    
  }
 
-  .daily h3{
-     background-color: #226AB4;
+  #table-title {
+     background-color:#ecf0f3;
+     color: black;
   }
 
 
 .task {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     width: 24rem;
-    /* height: 1.5rem; */
-    height: auto;
+    max-height: 3.5rem;
     box-shadow: 2px 4px 6px gray; 
-    background-color: white;
-    color: black;
+    /* background-color: white; */
+    color:white;
     margin: 1rem 2rem;
-    border-radius: 4px;
-    padding: 6px 0;
+    padding: 6px 0.1rem;
     text-transform: capitalize;
     font-weight: 600;
-    /* overflow-y: scroll; */
+    overflow-y: auto;
 }    
 
-@media(max-width: 1300px) {
-
+.daily-task {
+background-color: #FF00BF;
 }
+
+.weekly-task {
+    color: white;
+    background-color: #E6A547;
+}
+
+.text {
+    margin-right: 1rem;
+    width: 20rem;
+}
+
+.delete-icon {
+    width: 1rem;
+    /* height: 0.5rem; */
+   
+}
+
 
 @media(max-width: 991px){
      .task {

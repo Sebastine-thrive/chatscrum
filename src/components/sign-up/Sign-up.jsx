@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, {  useEffect } from "react";
 
 import "./sign-up.css";
 import { useForm } from "react-hook-form";
@@ -20,8 +20,8 @@ const schema = yup.object().shape(
 )
 
 export default function SignUp() {
-  
-  const {email, password, setEmail, setPassword, setProjectName, setUserType, setFullName, fullName, userType, projectName, user, setUser } = useStateContext()
+
+  const { email, password, setEmail, setPassword, setProjectName, setUserType, setFullName, fullName, userType, projectName, user, setUser } = useStateContext();
 
 
   const {
@@ -81,7 +81,7 @@ export default function SignUp() {
           <input type="password" name="password" {...register('password')} placeholder="input password" />
           <p className="error-message">{errors['password']?.message}</p>
 
-          <input type="text" name="projectname" {...register('projectname')} placeholder="project name"  />
+          <input type="text" name="projectname" {...register('projectname')} placeholder="project name" />
           <p className="error-message">{errors['projectname']?.message}</p>
 
 
@@ -96,8 +96,11 @@ export default function SignUp() {
 
         </form>
 
-        <p>Have an Account? <Link to="/signin"> <span className="signin_redirect">Sign In</span> </Link> </p>
-        <p><Link to="/"> <span className="back"> Back to Home </span> </Link></p>
+        <p>Have an Account? <Link to="/signin">
+          <span className="signin_redirect">Sign In</span> </Link>
+        </p>
+
+        <p> <Link to="/"> <span className="back"> Back to Home </span>  </Link></p>
       </div>
     </div>
   )

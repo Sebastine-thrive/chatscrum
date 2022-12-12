@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState } from 'react';
 import { useLocalStorage } from './LocalStorage';
 
-const StateContext = createContext()
+const StateContext = createContext();
 
 export const ContextProvider = ({ children }) => {
     const [user, setUser] = useState(false);
@@ -17,7 +17,7 @@ export const ContextProvider = ({ children }) => {
     const [userType, setUserType] = useLocalStorage("usertype", "developer");
 
     const [tasks, setTasks] =
-        useState([])
+        useState([]);
 
     return (
         <StateContext.Provider

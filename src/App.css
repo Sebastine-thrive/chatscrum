@@ -1,3 +1,8 @@
 .App {
   text-align: center;
 }
+
+a, a:link, a:visited, a:active, a:hover {
+  border:0!important;
+  text-decoration: none;
+}

@@ -1,22 +1,37 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
+import { FiDelete } from 'react-icons/fi';
 import { useLocalStorage } from '../LocalStorage';
-// import { dailyTaskList } from "../static/Tasklist";
 import './tasks.css';
+
 
 export default function Tasks({ data }) {
 
-    const [weeklyTask, setWeeklyTask] = 
-    // useState(data);
-    useLocalStorage('weeklyTask', data);
-    
+    const [weeklyTask, setWeeklyTask] =
+        // useState(data);
+        useLocalStorage('weeklyTask', data);
+
     const [dailyTask, setDailyTask] = useLocalStorage('dailyTask', []);
 
     useEffect(() => {
         setWeeklyTask(data)
     }, [data]);
 
+
+
+    const deleteDailyTask = (id) => {
+        let tasks = dailyTask;
+        const remainingTasks = tasks.filter((task) => task.id !== id)
+        setDailyTask(remainingTasks)
+    }
+
+
+    const deleteWeeklyTask = (id) => {
+        let tasks = weeklyTask;
+        const remainingTasks = tasks.filter((task) => task.id !== id)
+        setWeeklyTask(remainingTasks)
+    }
 
     const handleOnDragEnd = result => {
         // getting the source and destination object
@@ -60,9 +75,6 @@ export default function Tasks({ data }) {
             }
         }
     }
-    console.log(data)
-    console.log(weeklyTask)
-    // console.log(dailyTask)
 
 
     return (
@@ -76,10 +88,10 @@ export default function Tasks({ data }) {
                                 ref={provided.innerRef}
                                 {...provided.droppableProps}
                                 style={{
-                                    background: snapshot.isDraggingOver ? '#87b3df' : " #2c1915"
+                                    background: snapshot.isDraggingOver ? '#87b3df' : "#ecf0f3"
                                 }}
                             >
-                                <h3> Weekly Tasks </h3>
+                                <h3 id='table-title'> Weekly Tasks </h3>
                                 {weeklyTask?.map(({ text, id }, index) => {
                                     // console.log(content)
                                     return (
@@ -87,7 +99,13 @@ export default function Tasks({ data }) {
                                             {(provided) => (
                                                 <div key={`${id}`} ref={provided.innerRef}{...provided.dragHandleProps} {...provided.draggableProps}
                                                 >
-                                                    <p className='task' > {text} </p>
+                                                    {/* <p className='task' > {text} </p> */}
+                                                    <div className='task weekly-task'>
+                                                        <p className='text'> {text}  </p>
+
+                                                        <p className='delete-icon'> <FiDelete color='white' onClick={() => deleteWeeklyTask(id)} />
+                                                        </p> 
+                                                    </div>
                                                 </div>
                                             )}
                                         </Draggable>
@@ -105,17 +123,24 @@ export default function Tasks({ data }) {
                                 ref={provided.innerRef}
                                 {...provided.droppableProps}
                                 style={{
-                                    background: snapshot.isDraggingOver ? ' #2c1915' : " #87b3df"
+                                    background: snapshot.isDraggingOver ? ' #2c1915' : " #ecf0f3"
                                 }}
                             >
-                                <h3> Daily Tasks</h3>
+                                <h3 id='table-title'> Daily Tasks</h3>
                                 {dailyTask?.map(({ id, text }, index) => {
                                     return (
                                         <Draggable key={`${id}`} draggableId={`${id}`} index={index}>
                                             {(provided) => (
                                                 <div key={`${id}`} ref={provided.innerRef}{...provided.dragHandleProps} {...provided.draggableProps}
                                                 >
-                                                    <p className='task' > {text} </p>
+                                                    <div className='task daily-task'>
+                                                         <p className='text'> {text}  </p>
+
+                                                     <p className='delete-icon'> <FiDelete color='white' onClick={()=>deleteDailyTask(id)} /> 
+                                                       </p> 
+
+                                                    </div>
+
                                                 </div>
                                             )}
                                         </Draggable>

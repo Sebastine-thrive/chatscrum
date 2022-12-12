@@ -12,7 +12,7 @@
     background-size: cover;
 }
 
-.home h1{
+.home .heading{
     margin-top: 7rem;
     display: flex;
     flex-direction: column;
@@ -20,9 +20,17 @@
 } 
 
 
-.home .title{
+.home h1 .scrum{
     font-size: 50px;
     color: rgb(23, 31, 49);
+        /* color:rgb(17, 248, 194); */
+
+    }
+
+.home h1 .life{
+    font-size: 50px;
+    color: rgb(255, 116, 51);
+    margin-left: -2rem;
     }
 
 .home .quote {

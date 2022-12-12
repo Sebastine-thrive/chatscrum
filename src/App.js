@@ -51,7 +51,6 @@ function App() {
                 </ProtectedRoute>}
             />
 
-            <Route exact path='/home2' element={<Home2 />} />
 
 
           </Routes >
