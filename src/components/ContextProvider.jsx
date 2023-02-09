@@ -14,10 +14,10 @@ export const ContextProvider = ({ children }) => {
 
     const [projectName, setProjectName] = useLocalStorage("projectname", "");
 
-    const [userType, setUserType] = useLocalStorage("usertype", "developer");
+    const [projectType, setProjectType] = useLocalStorage("projecttype", "home");
 
-    const [tasks, setTasks] =
-        useState([]);
+    const [tasks, setTasks] = 
+    useLocalStorage("tasks", []);
 
     return (
         <StateContext.Provider
@@ -27,7 +27,7 @@ export const ContextProvider = ({ children }) => {
                 email, setEmail,
                 password, setPassword,
                 projectName, setProjectName,
-                userType, setUserType,
+                projectType, setProjectType,
                 tasks, setTasks
             }} >
             {children}</StateContext.Provider>

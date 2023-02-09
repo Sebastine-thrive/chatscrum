@@ -8,7 +8,7 @@
         rgba(249, 146, 69, 0.3),
         rgba(34, 106, 180, 0.5) 
     ), 
-      url('../images/scrum.jpg') center top;
+      url('../../assets/images/scrum1.png') center top;
     background-size: cover;
 }
 
@@ -16,6 +16,9 @@
     margin-top: 7rem;
     display: flex;
     flex-direction: column;
+    justify-items: center; 
+    /* justify-self: center; */
+    align-items: center;
     font-family: 'Nova Flat'; 
 } 
 
@@ -23,7 +26,6 @@
 .home h1 .scrum{
     font-size: 50px;
     color: rgb(23, 31, 49);
-        /* color:rgb(17, 248, 194); */
 
     }
 
@@ -37,12 +39,18 @@
     color: white;
     font-size: 16px;
     margin-top: 2rem;
-    margin-left: 3rem;
+    max-width: 19rem; 
+    padding: 0.5rem;
+    background-color: black;
+    border-radius: 10px;
 }
 .home .author {
     font-size: 13px;
-    margin-left: 6rem;
     color:rgb(237, 248, 17);
+     max-width: 19rem; 
+    padding: 0.5rem;
+    background-color: black;
+    border-radius: 10px;
 }
 
 
@@ -53,13 +61,13 @@
     align-items: center;
     flex-direction: row;
     justify-content: center;
-    background: white;
     margin-top: 5rem;
     margin-bottom: 5rem ;
 } 
 
 .home .links  button {
-    width: 5rem;
+    width: 8rem;
+    height: 3rem;
     text-decoration: none;
     border-radius: 5px;
     margin: 0 10px;
@@ -81,10 +89,8 @@
 
 .home .links a .sign_in{
     font-weight: 600;
-    background: white;
     color: #ff5733;
     border: none;
-    /* border: 2px solid #ff5733; */
 }
 
 .home .links a .sign_in:hover{

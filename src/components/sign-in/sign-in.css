@@ -4,7 +4,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    /* background-color: #25af51; */
+    background-color: #023020;
 }
 
 .sign-in {
@@ -16,6 +16,7 @@
     align-items: center;
     padding: 10px 0;
     transform: scale(0.85);
+    z-index: 2;
 }
 
  .sign-in form{

@@ -1,27 +1,16 @@
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
-
-import "./scrumboard.css";
-
 import AddTask from './AddTask';
 import Tasks from '../tasks/Tasks';
-import { useLocalStorage } from '../LocalStorage';
-import { v4 as uuidv4 } from 'uuid';
 import { useStateContext } from '../ContextProvider';
-
+import "./scrumboard.css";
 
 
 export default function Scrumboard() {
-    const { fullName, userType, projectName, setEmail, setPassword, setUser } = useStateContext();
+    const { fullName, projectType, projectName, setEmail, setPassword, setUser, tasks, setTasks } = useStateContext();
     
-
-    const [content, setContent] = useState('');
-
     const [modalIsOpen, setModalIsOpen] = useState(false);
-    // const [tasks, setTasks] = 
-    // useState([])
-    const [tasks, setTasks] = useState([]);
-
+   
     const handleLogOut = () => {
         localStorage.clear();
         setEmail(null);
@@ -29,20 +18,12 @@ export default function Scrumboard() {
         setUser(false);
     }
 
-
-    const addTask = task => {
-        const allTasks = [task, ...tasks,]
-        setTasks(allTasks)
-        console.log(task.id)
-    }
-
-    console.log(tasks)
     return (
         <div className='scrumboard'>
             <nav>
                 <h1> ScrumLife</h1>
                 <div className='var'>
-                    <p>User type: <span>{userType} </span> </p>
+                    <p>Project type: <span>{projectType} </span> </p>
                     <p> Project Name: <span>{projectName} </span>  </p>
 
                     <div className='outlinks'>
@@ -54,18 +35,17 @@ export default function Scrumboard() {
                     </div>
                 </div>
             </nav >
-            <p id="info">Hello  <span>{fullName}</span>, Welcome to your Scrumboard!</p>
+            <p id="info">Hello  <span className='owner'>{fullName} ,</span> Welcome to your Scrumboard!</p>
+
+            <p className='intro'>Break your project into smaller <span className='weekly'>  weekly  </span>   and <span className="daily">  daily </span> tasks to help you achieve them, faster! </p>
 
             <div>
-                <Tasks data={tasks} 
-                // deleteTask={deleteTask}
-                />
+                 <Tasks /> 
             </div>
-
 
             <div>
                 <AddTask
-                    tasks={tasks} setTasks={setTasks} modalIsOpen={modalIsOpen} setModalIsOpen={setModalIsOpen} addTask={addTask} />
+                    tasks={tasks} setTasks={setTasks} modalIsOpen={modalIsOpen} setModalIsOpen={setModalIsOpen} />
             </div>
         </div >
     )

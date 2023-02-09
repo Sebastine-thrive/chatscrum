@@ -1,11 +1,11 @@
-import React, {  useEffect } from "react";
+import React from "react";
 
-import "./sign-up.css";
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { Link, useNavigate } from "react-router-dom";
 import { useStateContext } from '../ContextProvider';
+import "./sign-up.css";
 
 
 const schema = yup.object().shape(
@@ -21,7 +21,7 @@ const schema = yup.object().shape(
 
 export default function SignUp() {
 
-  const { email, password, setEmail, setPassword, setProjectName, setUserType, setFullName, fullName, userType, projectName, user, setUser } = useStateContext();
+  const { email, password, setEmail, setPassword, setProjectName, setProjectType, setFullName, fullName, projectType, projectName, user, setUser } = useStateContext();
 
 
   const {
@@ -35,10 +35,10 @@ export default function SignUp() {
   );
 
   const handleUserType = (e) => {
-    if (e.target.value === 'owner') {
-      setUserType('owner')
+    if (e.target.value === 'office') {
+      setProjectType('office')
     } else {
-      setUserType('developer')
+      setProjectType('home')
     }
   }
 
@@ -48,7 +48,7 @@ export default function SignUp() {
     setPassword(data.password);
     setEmail(data.email);
     setFullName(data.fullname);
-    setUserType(data.usertype);
+    setProjectType(data.projecttype);
     setProjectName(data.projectname);
     setUser(true);
     console.log(user)
@@ -61,7 +61,7 @@ export default function SignUp() {
   console.log(password)
   console.log(email)
   console.log(projectName)
-  console.log(userType)
+  console.log(projectType)
 
 
   return (
@@ -85,10 +85,10 @@ export default function SignUp() {
           <p className="error-message">{errors['projectname']?.message}</p>
 
 
-          <label htmlFor="options">User Type</label>
-          <select id="options" {...register('usertype')} name='usertype' onChange={(e) => handleUserType(e)} >
-            <option id="option" value="developer"> developer  </option>
-            <option id="option" value="owner"> owner </option>
+          <label htmlFor="options"> Project Type</label>
+          <select id="options" {...register('projecttype')} name='projecttype' onChange={(e) => handleUserType(e)} >
+            <option id="option" value="office"> office  </option>
+            <option id="option" value="home"> home </option>
 
           </select>
 

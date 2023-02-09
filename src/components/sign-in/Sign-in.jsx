@@ -9,24 +9,19 @@ import { useStateContext } from "../ContextProvider";
 const SignIn = () => {
     const {email, password, user, setUser} = useStateContext()
     
-
-
-    const [emailInput, setEmailInput] = useState('');
-    const [passwordInput, setPasswordInput] = useState('');
-
     const [signUpError, setSignUpError] = useState(false);
 
-
-    const [emailError, setEmailError] = useState(false);
+    const [emailInput, setEmailInput] = useState('');
     const [emailEmpty, setEmailEmpty] = useState(true);
+    const [emailError, setEmailError] = useState(false);
 
+
+    const [passwordInput, setPasswordInput] = useState('');
     const [passwordError, setPassWordError] = useState(false);
     const [passwordEmpty, setPassWordEmpty] = useState(true);
 
 
-
     let input = formContent.input;
-
 
     const navigate = useNavigate();
 
