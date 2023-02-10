@@ -7,8 +7,8 @@ import { useStateContext } from "../ContextProvider";
 
 
 const SignIn = () => {
-    const {email, password, user, setUser} = useStateContext()
-    
+    const { email, password, user, setUser } = useStateContext()
+
     const [signUpError, setSignUpError] = useState(false);
 
     const [emailInput, setEmailInput] = useState('');
@@ -22,7 +22,6 @@ const SignIn = () => {
 
 
     let input = formContent.input;
-
     const navigate = useNavigate();
 
     const handleSignIn = (e) => {
@@ -33,7 +32,7 @@ const SignIn = () => {
             e.preventDefault();
             setSignUpError(true)
         }
-        
+
         if (emailInput.length < 1) {
             e.preventDefault();
             setEmailEmpty(true)
@@ -53,7 +52,6 @@ const SignIn = () => {
             e.preventDefault();
             setPassWordError(true)
         }
-
 
         if ((signUpError === false) && (emailInput === email && passwordInput === password)) {
             setEmailError(false)
@@ -107,12 +105,11 @@ const SignIn = () => {
                         <p className="input_error passworderror">This password does not match any record</p>
                     }
 
-                    { (signUpError === true) &&
+                    {(signUpError === true) &&
                         <p className="input_error signup_error">You need to Sign up first</p>
                     }
 
                     <button onClick={handleSignIn}> SIGN IN</button>
-
                 </form>
 
                 <p>Don't Have an Account? <Link to="/signup"> <span className="signup_redirect"> Sign up </span> </Link></p>

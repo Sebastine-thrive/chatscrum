@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -22,6 +22,8 @@ const schema = yup.object().shape(
 export default function SignUp() {
 
   const { email, password, setEmail, setPassword, setProjectName, setProjectType, setFullName, fullName, projectType, projectName, user, setUser } = useStateContext();
+
+  const nameInput = useRef(null)
 
 
   const {
@@ -56,8 +58,6 @@ export default function SignUp() {
     navigate('/signin');
   }
 
-
-  console.log(fullName)
   console.log(password)
   console.log(email)
   console.log(projectName)

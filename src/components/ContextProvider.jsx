@@ -4,7 +4,8 @@ import { useLocalStorage } from './LocalStorage';
 const StateContext = createContext();
 
 export const ContextProvider = ({ children }) => {
-    const [user, setUser] = useState(false);
+    const [user, setUser] = useState(null);
+    const [userName, setUserName] = useState(null)
 
     const [fullName, setFullName] = useLocalStorage("fullname", "");
 
