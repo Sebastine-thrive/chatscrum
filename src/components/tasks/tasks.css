@@ -45,6 +45,40 @@ background-color: #FF00BF;
     background-color: #E6A547;
 }
 
+
+.boxes {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 0;
+}
+
+.box {
+    width: 450px;
+    height: 400px;
+    box-shadow: 2px 4px 6px gray;
+    margin: 0 30px;
+    border-radius: 5px;
+}
+
+.box h3 {
+    background-color: #ff5733;
+    margin-top: 0;
+    padding: 7px 0;
+    color: white;
+}
+
+
+#small-box {
+    width: 350px;
+    height: 40px;
+    box-shadow: 2px 4px 6px gray; 
+    margin-left: 35px;
+    border-radius: 4px;
+    padding-top: 10px;
+    font-weight: 600;
+}  
+
 .text {
     margin-right: 1rem;
     width: 20rem;

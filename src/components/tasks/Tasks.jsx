@@ -1,22 +1,19 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import { FiDelete } from 'react-icons/fi';
 import { useLocalStorage } from '../LocalStorage';
-import { useStateContext } from "../ContextProvider";
+// import { useStateContext } from "../ContextProvider";
 import './tasks.css';
 
 
-export default function Tasks() {
-    const { tasks } = useStateContext();
-
-    const [weeklyTask, setWeeklyTask] =
-        useLocalStorage('weeklyTask', tasks);
+export default function Tasks(props) {
+    const { weeklyTask, setWeeklyTask } = props;
 
     const [dailyTask, setDailyTask] = useLocalStorage('dailyTask', []);
 
-    useEffect(() => {
-        setWeeklyTask(tasks)
-    }, [setWeeklyTask]);
+    // useEffect(() => {
+    //     setWeeklyTask(tasks)
+    // }, [tasks, setWeeklyTask]);
 
 
     useEffect(() => {
@@ -28,6 +25,11 @@ export default function Tasks() {
         const remainingTasks = tasks.filter((task) => task.id !== id)
         setDailyTask(remainingTasks)
     }
+
+    // saveDailyTask = () => {
+    //     let tasks = dailyTask;
+    //     const savedTasks = tasks
+    // }
 
     const handleOnDragEnd = result => {
         // getting the source and destination object
@@ -57,21 +59,21 @@ export default function Tasks() {
 
             if (source.droppableId === "weekly") {
                 const [removed] = tempWeeklyList.splice(source.index, 1)
-                tempDailyList.splice(destination.index, 0, removed)
+                let newItem = tempDailyList.splice(destination.index, 0, removed)
 
-                setWeeklyTask(tempWeeklyList)
-                setDailyTask(tempDailyList)
+                setWeeklyTask([...tempWeeklyList])
+                setDailyTask( [...tempDailyList])
             } else {
                 const [removed] = tempDailyList.splice(source.index, 1);
                 tempWeeklyList.splice(destination.index, 0, removed)
 
-                setWeeklyTask(tempWeeklyList);
-                setDailyTask(tempDailyList);
+                setWeeklyTask([...tempWeeklyList]);
+                setDailyTask([...tempDailyList]);
             }
         }
     }
-    console.log(weeklyTask)
-    console.log(dailyTask)
+    // console.log(weeklyTask)
+    // console.log(dailyTask)
 
 
     return (
