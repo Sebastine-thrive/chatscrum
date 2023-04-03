@@ -1,6 +1,6 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import './scrumboard.css';
+import './addtask.css';
 
 
 export default function AddTask(props) {
@@ -34,7 +34,6 @@ export default function AddTask(props) {
             setModalIsOpen(true);
         }
         inputRef.current.focus();
-
     }
 
     return (

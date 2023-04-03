@@ -9,7 +9,7 @@
 
 .sign-in {
     display: flex;
-    background-color: rgb(207 250 254);
+    background-color: white;
     flex-direction: column;
     width: 500px;
     border-radius: 10px;
@@ -54,6 +54,7 @@ label {
 .sign-in input[type=email]:focus
 {
 border: none;
+background-color: #ecf0f3;
 }
 
 .sign-in button {
@@ -91,8 +92,6 @@ border: none;
 
 
 
-
-
 @media(max-width: 1300px){
              
 .sign-in {
@@ -124,9 +123,6 @@ border: none;
       margin-bottom: 0; 
 }
 
-.sign-in h1 {
-    font-size: 28px;
-}
 }
 
 
@@ -135,7 +131,6 @@ border: none;
       margin-left: 1rem;
       margin-right: 1rem; 
       margin-bottom: 0; 
-
 }
     
 .sign-in input[type=text],
@@ -155,7 +150,7 @@ border: none;
 }
 
 .sign-in h1 {
-    font-size: 26px;
+    font-size: 24px;
 }
     
 .sign-in input[type=text],

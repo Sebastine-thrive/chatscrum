@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import { Link } from "react-router-dom";
-import AddTask from './AddTask';
+import AddTask from './addtask/AddTask';
 import Tasks from '../tasks/Tasks';
 import { useStateContext } from '../ContextProvider';
-import "./scrumboard.css";
 import { useLocalStorage } from '../LocalStorage';
-import { setSelectionRange } from '@testing-library/user-event/dist/utils';
+import "./scrumboard.css";
+import ScrumboardHeader from './header/Header';
 
 
 export default function Scrumboard() {
@@ -14,55 +13,49 @@ export default function Scrumboard() {
     const [weeklyTask, setWeeklyTask] = useLocalStorage("weeklyTask", []);
 
     const [modalIsOpen, setModalIsOpen] = useState(false);
-    const [signOut, setSignOut] = useState(true)
 
     const openModal = () => {
         setModalIsOpen(true);
     }
 
-    // const handleLogOut = () => {
-    //     localStorage.clear();
-    //     setEmail(null);
-    //     setPassword(null);
-    //     setUser(false);
-    // }
+
 
     return (
-        <div className='scrumboard'>
-            {/* <div className={signOut ? 'overlay' : null}></div>             */}
-            <nav>
-                <h1> ScrumLife.</h1>
-                <div className='var'>
-                    <p>Project type: <span>{projectType} </span> </p>
-                    <p> Project Name: <span>{projectName} </span>  </p>
+        <>
+            <ScrumboardHeader data={{ projectType, projectName }} />
 
-                    <div className='outlinks'>
-                        <Link to='/signin'>
-                            <button
-                                className='sign_out'
-                            >
-                                Sign Out
-                            </button>
-                        </Link>
+            <div className='scrumboard-container'>
+                <div className='user-welcome'>
+                    <div>
+                        <p id="welcome">Hello
+                            <span className='owner'>{fullName},</span> <br />
+                            Welcome to your Scrumboard!
+                        </p>
+                    </div>
 
-                        {/* <Link to='/'>  <button className='clear_out' onClick={handleLogOut}>Clear Account</button>
-                        </Link> */}
+                    <div className='scrumboard-body'>
+                        <p className='intro'> Break your project into smaller <span className='weekly_intro'>   weekly </span>   and  <span className="daily_intro">  daily </span> tasks to help you achieve them, faster!
+                        </p>
                     </div>
                 </div>
-            </nav >
-            <p id="info">Hello  <span className='owner'>{fullName} ,</span> Welcome to your Scrumboard!</p>
 
-            <div className='scrumboard_body'>
-                <p className='intro'> Break your project into smaller <span className='weekly_intro'>   weekly </span>   and  <span className="daily_intro">  daily </span> tasks to help you achieve them, faster! </p>
 
-                <div>
+                <div className='tasks'>
                     <Tasks
                         weeklyTask={weeklyTask}
                         setWeeklyTask={setWeeklyTask}
                     />
                 </div>
 
-                <div>
+                <div className='addtask-button'>
+                    <button
+                        onClick={openModal}
+                    >
+                        ADD TASK
+                    </button>
+                </div>
+
+                <div className='add-task'>
                     <AddTask
                         modalIsOpen={modalIsOpen}
                         setModalIsOpen={setModalIsOpen}
@@ -70,13 +63,11 @@ export default function Scrumboard() {
                         setWeeklyTask={setWeeklyTask}
                     />
                 </div>
-
-                <button className='add' onClick={openModal}
-                >ADD TASK</button>
             </div>
 
-        </div >
+        </>
     )
 }
+
 
 

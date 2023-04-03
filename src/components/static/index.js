@@ -10,7 +10,7 @@ const formContent = {
             label: "Email",
             name: "email",
             type: "email"
-            
+
         },
 
         {
@@ -18,14 +18,19 @@ const formContent = {
             name: "password",
             type: "password"
         },
-        
+
         {
             label: "Project Name",
             name: "projectname",
             type: "text"
         },
-
     ]
 }
 
-export default formContent;
+export const reasonForScrumlife = 'To create an ordered record of projects and tasks required to help accomplish the projects, thereby saving time for racking memory while preserving energy and encouraing productivity'
+
+export const scrumlifeFeatures = [
+    'authentication', 'project creation', 'project classification', 'Time management'
+]
+
+export default formContent; 

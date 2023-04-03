@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import { FiDelete } from 'react-icons/fi';
 import { useLocalStorage } from '../LocalStorage';
-// import { useStateContext } from "../ContextProvider";
 import './tasks.css';
 
 
@@ -10,11 +9,6 @@ export default function Tasks(props) {
     const { weeklyTask, setWeeklyTask } = props;
 
     const [dailyTask, setDailyTask] = useLocalStorage('dailyTask', []);
-
-    // useEffect(() => {
-    //     setWeeklyTask(tasks)
-    // }, [tasks, setWeeklyTask]);
-
 
     useEffect(() => {
         setDailyTask(dailyTask)
@@ -25,11 +19,6 @@ export default function Tasks(props) {
         const remainingTasks = tasks.filter((task) => task.id !== id)
         setDailyTask(remainingTasks)
     }
-
-    // saveDailyTask = () => {
-    //     let tasks = dailyTask;
-    //     const savedTasks = tasks
-    // }
 
     const handleOnDragEnd = result => {
         // getting the source and destination object
@@ -79,7 +68,7 @@ export default function Tasks(props) {
     return (
         <DragDropContext onDragEnd={handleOnDragEnd}
         >
-            <div className='container'>
+            <div className='task-container'>
                 <div className='boxes'>
                     <Droppable droppableId='weekly'>
                         {(provided, snapshot) => (
@@ -109,7 +98,6 @@ export default function Tasks(props) {
                             </div>
                         )}
                     </Droppable>
-
 
                     <Droppable droppableId='daily'>
                         {(provided, snapshot) => (

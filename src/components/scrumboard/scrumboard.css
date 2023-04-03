@@ -1,50 +1,77 @@
-.scrumboard {
-    position: relative; 
-    min-width:100vw;
-   padding-bottom: 70px; 
-   overflow-x: hidden;
-    scroll-behavior: smooth;
-     background:url('../../assets/images/msg_background.jpg') center;
-    background-size: cover;
-    background-repeat: no-repeat;
+.scrumboard-container {
+    display: flex;
+    flex-direction: column;
+    max-width:100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+    /* position: relative; */
+    scroll-behavior: smooth; 
+     /* background:url('../../assets/images/msg_background.jpg') center; 
+     background-size: cover; 
+    background-repeat: no-repeat; */
 } 
 
-nav {
-    max-width: 100vw;
+.scrumboard-body {
+    width: auto;
+    margin: 10px 0;
+    padding: 10px;
 }
 
-.var {
+.project-heading {
+    text-align: left;
     padding-right: 3rem;
 }
-.var p span {
+.project-heading p span {
     text-transform: capitalize;
 }
 
-.add-task {
-    margin-top: 1rem;
-    margin-bottom: 7rem;
+.tasks {
+    margin-top: 30px;
+}
+.addtask-button {
+    margin-top: 5px;
+    z-index: 999;
 }
 
-.add {
+.addtask-button button {
+    margin-top: 20px;
     background-color: #226AB4 ;
     border: none;
     border-radius: 8px;
     color: white;
     font-weight: 500;
-    margin-top: 4rem ;
     width: 13rem;
     padding: 15px 10px;
-    z-index: 999;
+    /* z-index: 999; */
     font-size: 15px;
 }
 
-.add:hover {
+.addtask-button button:hover {
     background-color: white;
     border: 2px solid #226ABA;
     color: #226AB4;
 }
 
-#info {
+.add-task {
+    z-index: 1000;
+    position: absolute;
+    left: calc(50% - 225px);
+    top:70%;
+}
+
+/* 
+.add-task {
+    margin-top: 0;
+    left: 50%
+    left: calc(50% - 225px)
+    position: relative;
+    margin-bottom: 7rem;
+    bottom: 0;
+    top:70%;
+    border-radius: 10px;
+}  */
+
+.user-welcome #welcome {
     max-width:100vw;
     padding: 10px;
     font-weight: 700;
@@ -53,7 +80,7 @@ nav {
     margin: 0;
 }
 
-#info span{
+#welcome span{
     text-transform:capitalize ;
     padding: 1rem;
     color:white
@@ -80,40 +107,7 @@ nav {
     color: #FF00BF;
 }
 
-.scrumboard nav {
-    background-color:#0074EB ;
-    color: white;
-    display: flex;
-    padding: 20px 10px;
-    justify-content: space-between;
-}
-
-
-#modal {
-    width: 450px;
-    height: 200px;
-    background-color: white;
-    box-shadow: 2px 4px 6px gray;
-    z-index: 9999;
-    position: absolute;
-    margin-left: 31rem;
-    margin-bottom: 0;
-}
-
-#modal h3 {
-    border-top-left-radius: 4px;
-}
-
-.show {
-    display: block;
-     margin-top: 1rem;
-    margin-bottom: 7rem;
-}
-
-.hidden {
-    display: none;
-}
-
+/* 
 .overlay {
    position: fixed;
    top: 0;
@@ -124,72 +118,8 @@ nav {
    background: rgba(0,0, 0, 0.1);
    backdrop-filter: blur(4px);
    z-index: 3;
-}
-
-#close {
-    border: 2px solid white;
-    padding: 0.5rem;
-}
-
-.header {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-    background-color:#226AB4;
-    color: white;
-}
-
-.header h2{
-    width: 10%;
-    border-left: 2px solid white;
-    cursor: pointer;
-    margin-left: 50px;
-    padding-left: 30px;
-}
-
-#modal form {
-    padding: 1.8rem 0;
-}
-#modal #task-input {
-    width: 15rem;
-    border: 2px solid #226AB4;
-    padding-left: 6px;
-    height: 2rem;
-    /* margin:0 2rem ; */
-}
-
-#modal #task-input:focus{
-    border: none;
-    border-radius: 3px;
-    background-color: #ecf0f3;
-    -moz-border: 0;
-}
-
-.confirm {
-    margin-top: 0.5rem;
-    width: 8rem;
-    height: 2rem;
-    background-color: #ff5733;
-    border: none;
-    border-radius: 5px;
-    color: white;
-}
-
-.confirm:hover {
-    color: #ff5733;
-    background-color: white;
-    border: 2px solid #ff5733;
-
-}
-
-#task {
-    padding: 5px;
-    font-weight: 500;
-    box-shadow: 1px 2px 2px gray;
-    color: rgb(16, 16, 90)
-}
-
+}  */
+/* 
 .sign_out {
  width: auto;
  height: 2rem;
@@ -200,9 +130,9 @@ nav {
  border-radius: 5px;
  padding: 5px 10px;
  cursor: pointer;
-}
+} */
 
-.sign_out:hover {
+/* .sign_out:hover {
     background-color: white;
     color: black;
 }
@@ -224,42 +154,33 @@ nav {
 }
 .clear_out a { text-decoration: none; }
 .clear_out a:visited { text-decoration: none; }
-.clear_out a:active { text-decoration: none; }
+.clear_out a:active { text-decoration: none; } */
 
-
+/* Media queries  */
 @media(max-width: 1300px) {
-  #modal {
+  /* #modal {
         margin-left: 26rem;
-    }
+    } */
 
 }
 
 @media(max-width: 1025px) {
- #modal {
-        margin-left: 18rem;
+
+   .add-task {
+        top:50%;
     }
 }
 
 @media(max-width: 991px){
-     #modal {
-        margin-left: 190px;
-    }
+      .add-task {
+        top:50%;
+}
 
 }
 
 @media(max-width: 769px) {
-    .boxes {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .box {
-        margin-bottom: 30px;
-    }
-
-    #modal {
-        margin-top: -430px;
-        margin-left: 160px;
+      .add-task {
+        top:50%;
     }
 
     .intro {
@@ -268,96 +189,73 @@ nav {
 }
 
 @media(max-width: 600px) {
- #modal {
-    width:394px;
-    margin-left: 80px;
+    .add-task {
+        top:50%;
 }
 }
+
+
 
 @media(max-width: 415px){
-     .scrumboard nav {
+
+    .scrumboard-body  {
         width: 100vw;
-        padding-left:  10px;
-        padding-right: 20px;
+        padding-left: 10px; 
+        padding-right:25px;
+        /* padding-left: 10px; 
+       left: 25%;
+       .scrumboard-body p{
+#welcome {
+    font-size: 20px;
+       }
+        padding:0 15px;
+        */
     }
-    .var p {
-        margin-top: -1rem;
-        padding-right: 18px;
+
+     .addtask-button {
+        margin-bottom: 20px;
     }
-.var .clear_out {
-    margin-right: 3rem;
-    margin-top: 2rem;
-}
-
-#modal {
-    width:392px;
-    margin-left:0.5rem;
-}
-
+   
 }
 
 @media(max-width: 376px) {
-    .scrumboard nav {
-        width: 100vw;
-        padding-left:  10px;
-        padding-right: 20px;
+    
+     .add-task {
+        top:80%;
+        left: 10px;
+
     }
-    .var p {
-        margin-top: -1rem;
-        padding-right: 15px;
-    }
-.var .clear_out {
+
+    .var .clear_out {
     margin-right: 2rem;
     margin-top: 2rem;
 }
 
-    #modal {
-        width: 300px;
-        margin-left: 2.5rem;
-
-    }
 }
 @media(max-width: 321px){
-      .var p {
-        margin-top: -1rem;
-        padding-right: 15px;
-    }
-
-    .var .outlinks {
-        width: 10rem;
-    }
-
-    .var .clear_out {
-        margin-right: -1.6rem;
-        margin-left: 0;
-    }
+    
     .var .sign_out {
         margin-right: 1rem;
     }
 
-      #modal {
-        width: 300px;
-        margin-left: 0.5rem;
-    }
-
+   
 }
 
 
 @media(max-width: 281px){
-     .var .outlinks {
-        width: 8rem;
-    }
-      
-.var .clear_out {
-    margin-right: -1rem;
-    margin-top: .5rem;
-}
- .var .sign_out {
-        margin-right: -0.6rem;
-    }
+   
+     .scrumboard-body  {
+        width: 100vw;
+        padding-left: 10px; 
+        padding-right:20px;
+     }
 
- #modal {
-        width: 270px;
-    }
-    
-}
+     .scrumboard-body p{
+       font-size: 17px;
+       }
+
+       #welcome .owner{
+        font-size: 25px;
+       }
+
+} 

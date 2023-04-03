@@ -1,16 +1,17 @@
  
+ .task-container {
+    z-index: 0;
+ }
+ 
  .weekly, .daily {
     display: flex;
     flex-direction: column;
     overflow-y:auto ;
-    top: 0;
-    z-index: 1;
  }
 
  .weekly h3{
      position: -webkit-sticky;
      position: sticky;
-    
  }
 
   #table-title {
@@ -27,7 +28,6 @@
     width: 24rem;
     max-height: 3.5rem;
     box-shadow: 2px 4px 6px gray; 
-    /* background-color: white; */
     color:white;
     margin: 1rem 2rem;
     padding: 6px 0.1rem;
@@ -85,15 +85,16 @@ background-color: #FF00BF;
 }
 
 .delete-icon {
-    width: 1rem;
-    /* height: 0.5rem; */
-   
+    width: 1rem;   
 }
 
 
 @media(max-width: 991px){
      .task {
-         width: 18.5rem;
+         width: 19rem;
+     }
+     .delete-icon {
+         padding-right: 12px;
      }
 }
 
@@ -101,7 +102,17 @@ background-color: #FF00BF;
      .task {
          width: 25rem;
      }
+     
+    .boxes {
+        flex-direction: column;
+        align-items: center;
+    } 
+
+     .box {
+        margin-bottom: 30px;
+    }  
 }
+
 
 @media(max-width: 600px){
      .task {
@@ -114,13 +125,18 @@ background-color: #FF00BF;
          width: 400px;
 }
  .task {
-         width: 21rem;
+         width: 22rem;
+     }
+
+     .delete-icon {
+         padding-right: 12px;
      }
 }
 
 @media(max-width: 376px){
      .weekly, .daily {
          width: 330px;
+        padding: 10px 15px;
      }
 
      .task {
@@ -136,10 +152,13 @@ background-color: #FF00BF;
 
 @media(max-width: 281px){
     .weekly, .daily {
-    width: 250px;
+         width: 250px;
+         padding: 10px 5px;
+
 }
 
  .task {
          width: 13rem;
+         margin-right: 20px;
      }
 }

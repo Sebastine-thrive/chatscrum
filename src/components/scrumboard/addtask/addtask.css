@@ -1,0 +1,166 @@
+
+
+.show {
+    display: block;
+     margin-top: 1rem;
+    margin-bottom: 7rem;
+}
+
+.hidden {
+    display: none;
+}
+
+
+#modal .header {
+    display: flex;
+    flex-direction: row;
+    height: 40px;
+    align-items: center;
+    justify-content: space-around;
+    background-color:#226AB4;
+    color: white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.header h2{
+    width: 10%;
+    border-left: 2px solid white;
+    cursor: pointer;
+    margin-left: 50px;
+    padding-left: 30px;
+}
+
+#modal {
+    width: 450px;
+    height: 200px;
+    background-color: white;
+    box-shadow: 2px 4px 6px gray;
+    border-radius: 10px;
+    z-index: 10;
+    margin-bottom: 0;
+}
+
+#modal h3 {
+    border-top-left-radius: 4px;
+}
+
+
+#close {
+    border: 2px solid white;
+    border-radius: 5px;
+    background-color: white;
+    color: red;
+    padding: 5px;
+}
+
+#modal form {
+    padding: 1rem 0;
+}
+#modal #task-input {
+    width: 15rem;
+    border: 2px solid #226AB4;
+    border-radius: 5px;
+    padding-left: 6px;
+    height: 2rem;
+    /* margin:0 2rem ; */
+}
+
+#modal #task-input:focus{
+    border: none;
+    border-radius: 3px;
+    background-color: #ecf0f3;
+    -moz-border: 0;
+}
+
+.confirm {
+    margin-top: 1rem;
+    width: 8rem;
+    height: 2rem;
+    background-color: #ff5733;
+    border: none;
+    border-radius: 5px;
+    color: white;
+}
+
+.confirm:hover {
+    color: #ff5733;
+    background-color: white;
+    border: 2px solid #ff5733;
+
+}
+
+#task {
+    padding: 5px;
+    font-weight: 500;
+    box-shadow: 1px 2px 2px gray;
+    color: rgb(16, 16, 90)
+}
+
+@media(max-width: 1300px) {
+  /* #modal {
+    margin-left: 26rem; 
+    } */
+
+}
+
+@media(max-width: 1025px) {
+ /* #modal {
+    margin-left: 18rem;
+    } */
+}
+
+@media(max-width: 991px){
+ /* #modal {
+        margin-left: 190px;
+    } */
+}
+
+/* 
+@media(max-width: 769px) {
+      #modal {
+        margin-top: -430px;
+        margin-left: 160px;
+    }
+@media(max-width: 600px) {
+    .add-task {
+        left: 20px
+}
+
+} */
+
+@media(max-width: 600px) {
+ #modal {
+    width:394px;
+    /* margin-left: 80px; */
+}
+}
+
+@media(max-width: 415px){
+#modal {
+    width:392px;
+    margin-left:2rem;
+}
+}
+
+
+@media(max-width: 376px) {
+ #modal {
+        width: 300px;
+        /* margin-left: 2.5rem; */
+    }
+}
+
+@media(max-width: 321px){
+    #modal {
+        width: 300px;
+        margin-left: 0.5rem;
+    }
+
+}
+
+@media(max-width: 281px){  
+    #modal {
+        width: 270px;
+    }
+}
