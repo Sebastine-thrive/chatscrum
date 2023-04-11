@@ -1,164 +1,169 @@
- 
- .task-container {
-    z-index: 0;
- }
- 
- .weekly, .daily {
-    display: flex;
-    flex-direction: column;
-    overflow-y:auto ;
- }
+.task-container {
+  z-index: 0;
+}
 
- .weekly h3{
-     position: -webkit-sticky;
-     position: sticky;
- }
+.weekly,
+.daily {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  z-index: 0;
+}
 
-  #table-title {
-     background-color:#ecf0f3;
-     color: black;
-  }
+.weekly h3 {
+  position: -webkit-sticky;
+  position: sticky;
+}
 
+#table-title {
+  background-color: #ecf0f3;
+  color: black;
+}
 
 .task {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    width: 24rem;
-    max-height: 3.5rem;
-    box-shadow: 2px 4px 6px gray; 
-    color:white;
-    margin: 1rem 2rem;
-    padding: 6px 0.1rem;
-    text-transform: capitalize;
-    font-weight: 600;
-    overflow-y: auto;
-}    
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 24rem;
+  max-height: 3.5rem;
+  box-shadow: 2px 4px 6px gray;
+  color: white;
+  margin: 1rem 2rem;
+  padding: 6px 0.1rem;
+  text-transform: capitalize;
+  font-weight: 600;
+  overflow-y: auto;
+}
 
 .daily-task {
-background-color: #FF00BF;
+  background-color: #ff00bf;
 }
 
 .weekly-task {
-    color: white;
-    background-color: #E6A547;
+  color: white;
+  background-color: #e6a547;
 }
 
-
 .boxes {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin-top: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 0;
 }
 
 .box {
-    width: 450px;
-    height: 400px;
-    box-shadow: 2px 4px 6px gray;
-    margin: 0 30px;
-    border-radius: 5px;
+  width: 450px;
+  height: 400px;
+  box-shadow: 2px 4px 6px gray;
+  margin: 0 30px;
+  border-radius: 5px;
 }
 
 .box h3 {
-    background-color: #ff5733;
-    margin-top: 0;
-    padding: 7px 0;
-    color: white;
+  background-color: #ff5733;
+  margin-top: 0;
+  padding: 7px 0;
+  color: white;
 }
 
-
 #small-box {
-    width: 350px;
-    height: 40px;
-    box-shadow: 2px 4px 6px gray; 
-    margin-left: 35px;
-    border-radius: 4px;
-    padding-top: 10px;
-    font-weight: 600;
-}  
+  width: 350px;
+  height: 40px;
+  box-shadow: 2px 4px 6px gray;
+  margin-left: 35px;
+  border-radius: 4px;
+  padding-top: 10px;
+  font-weight: 600;
+}
 
 .text {
-    margin-right: 1rem;
-    width: 20rem;
+  margin-right: 1rem;
+  width: 20rem;
+  padding: 0 10px;
 }
 
 .delete-icon {
-    width: 1rem;   
+  width: 1rem;
 }
 
-
-@media(max-width: 991px){
-     .task {
-         width: 19rem;
-     }
-     .delete-icon {
-         padding-right: 12px;
-     }
+@media (max-width: 991px) {
+  .task {
+    width: 19rem;
+  }
+  .delete-icon {
+    padding-right: 12px;
+  }
 }
 
-@media(max-width: 769px) {
-     .task {
-         width: 25rem;
-     }
-     
-    .boxes {
-        flex-direction: column;
-        align-items: center;
-    } 
+@media (max-width: 769px) {
+  .task {
+    width: 25rem;
+  }
 
-     .box {
-        margin-bottom: 30px;
-    }  
+  .boxes {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .box {
+    margin-bottom: 30px;
+  }
 }
 
-
-@media(max-width: 600px){
-     .task {
-         width: 25rem;
-     }
+@media (max-width: 600px) {
+  .task {
+    width: 25rem;
+  }
 }
 
-@media(max-width: 415px){
-     .weekly, .daily {
-         width: 400px;
-}
- .task {
-         width: 22rem;
-     }
+@media (max-width: 415px) {
+  .weekly,
+  .daily {
+    width: 380px;
+  }
+  .task {
+    width: 20rem;
+    margin: 10px auto;
+  }
 
-     .delete-icon {
-         padding-right: 12px;
-     }
-}
-
-@media(max-width: 376px){
-     .weekly, .daily {
-         width: 330px;
-        padding: 10px 15px;
-     }
-
-     .task {
-         width: 16rem;
-     }
+  .delete-icon {
+    padding-right: 12px;
+  }
 }
 
-@media(max-width: 321px){
-     .weekly, .daily {
-         width: 300px;
-     }
+@media (max-width: 376px) {
+  .weekly,
+  .daily {
+    width: 330px;
+    /* padding: 10px 15px; */
+  }
+
+  .task {
+    width: 16rem;
+  }
 }
 
-@media(max-width: 281px){
-    .weekly, .daily {
-         width: 250px;
-         padding: 10px 5px;
+@media (max-width: 321px) {
+  .weekly,
+  .daily {
+    width: 300px;
+  }
 
+  /* .task {
+    width: 14rem;
+  } */
 }
 
- .task {
-         width: 13rem;
-         margin-right: 20px;
-     }
+@media (max-width: 281px) {
+  .weekly,
+  .daily {
+    width: 250px;
+    padding: 10px 5px;
+  }
+
+  .task {
+    width: 13rem;
+    margin-right: 20px;
+  }
 }

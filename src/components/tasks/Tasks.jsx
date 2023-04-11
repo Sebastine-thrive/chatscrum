@@ -61,8 +61,6 @@ export default function Tasks(props) {
             }
         }
     }
-    // console.log(weeklyTask)
-    // console.log(dailyTask)
 
 
     return (
